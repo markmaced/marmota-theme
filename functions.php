@@ -51,7 +51,7 @@ add_action( 'after_setup_theme', 'tailpress_setup' );
     wp_enqueue_script(
         'material-tailwind-js',
         'https://unpkg.com/@material-tailwind/html@latest/dist/material-tailwind.umd.min.js',
-        array('popper'), // Dependência definida
+        array('popper'),
         null,
         true
     );
@@ -71,6 +71,8 @@ function tailpress_enqueue_scripts() {
 	wp_add_inline_script('aos-js', 'AOS.init();');
 	wp_enqueue_script('sweetAlert' , 'https://cdn.jsdelivr.net/npm/sweetalert2@11');
 	wp_enqueue_script( 'jquery-mask', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js' );
+	wp_enqueue_style('flowbite-style' , 'https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css');
+	wp_enqueue_script('flowbyte-css','https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js');
 	wp_localize_script(
 		'tailpress',
 		'wpurl',
@@ -146,3 +148,5 @@ add_filter( 'nav_menu_submenu_css_class', 'tailpress_nav_menu_add_submenu_class'
 $functions_path = get_template_directory() . '/functions/';
 
 require_once($functions_path . 'theme-options.php');
+require_once($functions_path . 'add-to-cart.php');
+require_once($functions_path . 'log-to-file.php');

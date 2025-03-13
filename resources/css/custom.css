@@ -44,8 +44,30 @@ article > *:not(.entry-content),
 body{
     max-width: 100%;
     overflow-x: hidden;
+    font-family: Omnes, sans-serif;
 }
 
 a{
     text-decoration: none !important;
+}
+
+.wp-block-woocommerce-cart{
+    width: 100% !important;
+}
+
+.woocommerce-checkout input{
+    background: #fff;
+    border-radius: 5px;
+    padding: 0 10px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+.person-type-field{
+    margin-bottom: 20px;
+}
+#billing_cpf{
+    margin-bottom: 0 !important;
+}
+p#billing_country_field{
+    margin-bottom: 20px !important;
 }

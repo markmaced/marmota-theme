@@ -35,3 +35,11 @@
 @utility text-custom-gray{
     color: #8e8e8e;
 }
+
+@utility bg-custom-gray{
+    background-color: #8e8e8e;
+}
+
+@utility radius-t-full{
+    border-radius: 12px 12px 0px 0;
+}
