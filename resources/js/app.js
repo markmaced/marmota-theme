@@ -47,5 +47,16 @@ jQuery(document).ready(function ($) {
                         }
                   });
             });
+            $(document).on('click', 'button[act="#planos"]', function (event) {
+                  event.preventDefault();
+          
+                  var target = $($.attr(this, 'act'));
+          
+                  if (target.length) {
+                      $('html, body').animate({
+                          scrollTop: target.offset().top
+                      }, 800);
+                  }
+              });
       });
 })

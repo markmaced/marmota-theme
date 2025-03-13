@@ -5,7 +5,7 @@
         <p class="text-xl font-omnes text-black font-normal">toda oferta precisa <b>de uma página clara,</b> persuasiva
             e focada na conversão.</p>
         <button type="button"
-            class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer">QUERO
+            class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer" act="#planos">QUERO
             UMA PÁGINA QUE VENDE!</button>
     </div>
 </section>
@@ -136,7 +136,7 @@
         </div>
         <div class="w-full flex justify-center">
             <button type="button"
-                class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer">Já
+                class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer" act="#planos">Já
                 entendi, quero criar minha página!</button>
         </div>
     </div>
@@ -220,7 +220,7 @@
     </div>
 </section>
 
-<section class="max-w-5xl mx-auto py-20" data-aos="zoom-in">
+<section class="max-w-5xl mx-auto py-20" data-aos="zoom-in" id="planos">
     <h2 class="text-5xl font-normal font-omnes text-center mb-14 leading-tight" data-aos="fade-down">
         Escolha o seu:</h2>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6 relative">
@@ -855,7 +855,7 @@
             <b>A segunda melhor é agora.</b>
         </p>
         <button type="button"
-            class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer">Garanta
+            class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer" act="#planos">Garanta
             já a sua!</button>
     </div>
 </section>
