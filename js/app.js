@@ -63,6 +63,42 @@ jQuery(document).ready(function ($) {
         }, 800);
       }
     });
+    function updateFee() {
+      var paymentMethod = $('input[name="payment_method"]:checked').val();
+      Swal.fire({
+        title: "Alterando método de pagamento...",
+        text: "Aguarde um momento.",
+        icon: "info",
+        showConfirmButton: false,
+        allowOutsideClick: false,
+        didOpen: function didOpen() {
+          Swal.showLoading();
+        }
+      });
+      $.ajax({
+        type: 'POST',
+        url: wpurl.ajax,
+        data: {
+          action: 'calculate_custom_fee',
+          payment_method: paymentMethod
+        },
+        success: function success(response) {
+          if (response.success) {
+            console.log(response.data);
+            $('.order-total').html('<th>Total</th><td><strong><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">R$</span>&nbsp;' + response.data.total + '</bdi></span></strong> </td>');
+            if (response.data.fee == 0) {
+              $('.fee').html('');
+            } else {
+              $('.fee').html('<th>Taxa Crédito</th><td><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">R$</span>&nbsp;' + response.data.fee + '</bdi></span></td>');
+            }
+            Swal.close();
+          }
+        }
+      });
+    }
+    $(document).on('change', '.woocommerce-checkout-payment input[name="payment_method"]', function () {
+      updateFee();
+    });
   });
 });
 

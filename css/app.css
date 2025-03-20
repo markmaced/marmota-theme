@@ -601,9 +601,6 @@
   .m-8 {
     margin: calc(var(--spacing) * 8);
   }
-  .mx-1\.5 {
-    margin-inline: calc(var(--spacing) * 1.5);
-  }
   .mx-\[5px\] {
     margin-inline: 5px;
   }
@@ -618,9 +615,6 @@
   }
   .my-8 {
     margin-block: calc(var(--spacing) * 8);
-  }
-  .ms-1\.5 {
-    margin-inline-start: calc(var(--spacing) * 1.5);
   }
   .ms-2 {
     margin-inline-start: calc(var(--spacing) * 2);
@@ -673,12 +667,6 @@
   .mb-16 {
     margin-bottom: calc(var(--spacing) * 16);
   }
-  .mb-20 {
-    margin-bottom: calc(var(--spacing) * 20);
-  }
-  .mb-24 {
-    margin-bottom: calc(var(--spacing) * 24);
-  }
   .block {
     display: block;
   }
@@ -693,9 +681,6 @@
   }
   .h-1 {
     height: calc(var(--spacing) * 1);
-  }
-  .h-2 {
-    height: calc(var(--spacing) * 2);
   }
   .h-4 {
     height: calc(var(--spacing) * 4);
@@ -714,9 +699,6 @@
   }
   .w-1\/5 {
     width: calc(1/5 * 100%);
-  }
-  .w-2 {
-    width: calc(var(--spacing) * 2);
   }
   .w-2\/3 {
     width: calc(2/3 * 100%);
@@ -739,9 +721,6 @@
   .w-\[30\%\] {
     width: 30%;
   }
-  .w-\[46px\] {
-    width: 46px;
-  }
   .w-\[70\%\] {
     width: 70%;
   }
@@ -750,9 +729,6 @@
   }
   .container {
     max-width: var(--wp--style--global--wide-size);
-  }
-  .max-w-2xl {
-    max-width: var(--container-2xl);
   }
   .max-w-4xl {
     max-width: var(--container-4xl);
@@ -940,6 +916,9 @@
   .pt-6 {
     padding-top: calc(var(--spacing) * 6);
   }
+  .pb-10 {
+    padding-bottom: calc(var(--spacing) * 10);
+  }
   .pb-12 {
     padding-bottom: calc(var(--spacing) * 12);
   }
@@ -1021,10 +1000,6 @@
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
   }
-  .font-thin {
-    --tw-font-weight: var(--font-weight-thin);
-    font-weight: var(--font-weight-thin);
-  }
   .tracking-tight {
     --tw-tracking: var(--tracking-tight);
     letter-spacing: var(--tracking-tight);
@@ -1034,9 +1009,6 @@
   }
   .text-black {
     color: var(--color-black);
-  }
-  .text-blue-600 {
-    color: var(--color-blue-600);
   }
   .text-blue-700 {
     color: var(--color-blue-700);
@@ -1126,12 +1098,6 @@
       top: calc(var(--spacing) * 3);
     }
   }
-  .before\:top-3\.5 {
-    &::before {
-      content: var(--tw-content);
-      top: calc(var(--spacing) * 3.5);
-    }
-  }
   .before\:h-0\.5 {
     &::before {
       content: var(--tw-content);
@@ -1167,24 +1133,10 @@
       }
     }
   }
-  .hover\:text-blue-700 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-blue-700);
-      }
-    }
-  }
   .hover\:text-gray-500 {
     &:hover {
       @media (hover: hover) {
         color: var(--color-gray-500);
-      }
-    }
-  }
-  .hover\:underline {
-    &:hover {
-      @media (hover: hover) {
-        text-decoration-line: underline;
       }
     }
   }
@@ -1276,11 +1228,6 @@
       line-height: var(--tw-leading, var(--text-5xl--line-height));
     }
   }
-  .rtl\:rotate-180 {
-    &:where(:dir(rtl), [dir="rtl"], [dir="rtl"] *) {
-      rotate: 180deg;
-    }
-  }
   .dark\:border-gray-600 {
     @media (prefers-color-scheme: dark) {
       border-color: var(--color-gray-600);
@@ -1304,20 +1251,6 @@
   .dark\:text-gray-500 {
     @media (prefers-color-scheme: dark) {
       color: var(--color-gray-500);
-    }
-  }
-  .dark\:text-white {
-    @media (prefers-color-scheme: dark) {
-      color: var(--color-white);
-    }
-  }
-  .dark\:hover\:text-blue-600 {
-    @media (prefers-color-scheme: dark) {
-      &:hover {
-        @media (hover: hover) {
-          color: var(--color-blue-600);
-        }
-      }
     }
   }
 }
@@ -1372,7 +1305,7 @@
   .wp-block-woocommerce-cart {
     width: 100% !important;
   }
-  .woocommerce-checkout input {
+  .woocommerce-checkout input[type="text"] , .woocommerce-checkout input[type="tel"] , .woocommerce-checkout input[type="email"] {
     background: #fff;
     border-radius: 5px;
     padding: 0 10px;
@@ -1385,8 +1318,28 @@
   #billing_cpf {
     margin-bottom: 0 !important;
   }
-  p#billing_country_field {
+  p#billing_country_field , #billing_state_field {
     margin-bottom: 20px !important;
+  }
+  .shop_table {
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+  .woocommerce-checkout #payment div.payment_box .form-row {
+    margin-bottom: 0 !important;
+  }
+  .woocommerce-checkout #payment div.form-row {
+    padding-bottom: 0 !important;
+  }
+  #place_order {
+    background: #000;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 40px;
+    margin-bottom: 40px;
+    cursor: pointer;
   }
 }
 @layer base {

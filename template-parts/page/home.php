@@ -368,10 +368,11 @@
                     </div>
                 </div>
                 <div class="w-full flex justify-center">
-                    <button type="button"
+                    <!-- <button type="button"
                         class="model-selected w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5"
                         product_id="65">Escolher
-                        este modelo</button>
+                        este modelo</button> -->
+                        <a href="https://checkout.infinitepay.io/marcos-macedo-bfr?items=[{"name":"Vapt+Vupt","price":100000,"quantity":1}]&redirect_url=https://marmota.devhouse.com.br/">Escolher este modelo</a>
                 </div>
             </div>
         </div>
@@ -524,7 +525,7 @@
                 </div>
                 <div class="w-full flex justify-center">
                     <button type="button"
-                        class="w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5">Escolher
+                        class="model-selected w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5" act="72">Escolher
                         este modelo</button>
                 </div>
             </div>
@@ -678,7 +679,7 @@
                 <div class="w-full flex justify-center">
                     <button type="button"
                         class="model-selected w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5"
-                        product_id="69">Escolher
+                        product_id="73">Escolher
                         este modelo</button>
                 </div>
             </div>

@@ -55,7 +55,7 @@ a{
     width: 100% !important;
 }
 
-.woocommerce-checkout input{
+.woocommerce-checkout input[type="text"] , .woocommerce-checkout input[type="tel"] , .woocommerce-checkout input[type="email"]{
     background: #fff;
     border-radius: 5px;
     padding: 0 10px;
@@ -68,6 +68,29 @@ a{
 #billing_cpf{
     margin-bottom: 0 !important;
 }
-p#billing_country_field{
+p#billing_country_field , #billing_state_field{
     margin-bottom: 20px !important;
+}
+.shop_table{
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: left;
+}
+.woocommerce-checkout #payment div.payment_box .form-row{
+    margin-bottom: 0 !important;
+}
+.woocommerce-checkout #payment div.form-row{
+    padding-bottom: 0 !important;
+}
+#place_order{
+    background: #000;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 40px;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+#place_order{
+    
 }

@@ -150,3 +150,4 @@ $functions_path = get_template_directory() . '/functions/';
 require_once($functions_path . 'theme-options.php');
 require_once($functions_path . 'add-to-cart.php');
 require_once($functions_path . 'log-to-file.php');
+require_once($functions_path . 'fee-transfer.php');
