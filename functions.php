@@ -78,6 +78,7 @@ function tailpress_enqueue_scripts() {
 		'wpurl',
 		array(
 			'ajax' => admin_url('admin-ajax.php'),
+			'siteUrl' => home_url()
 		)
 	);
 }
@@ -148,6 +149,6 @@ add_filter( 'nav_menu_submenu_css_class', 'tailpress_nav_menu_add_submenu_class'
 $functions_path = get_template_directory() . '/functions/';
 
 require_once($functions_path . 'theme-options.php');
-require_once($functions_path . 'add-to-cart.php');
 require_once($functions_path . 'log-to-file.php');
-require_once($functions_path . 'fee-transfer.php');
+require_once($functions_path . 'login.php');
+require_once($functions_path . 'registro.php');

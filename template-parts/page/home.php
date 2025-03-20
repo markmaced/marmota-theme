@@ -1,3 +1,10 @@
+<?php 
+$user = wp_get_current_user();
+$user_id = get_current_user_id();
+$nome = is_user_logged_in() ? $user->display_name : '';
+$email = is_user_logged_in() ? $user->user_email : '';
+$telefone = is_user_logged_in() ? get_field('telefone' , 'user_'.$user_id) : '';
+?>
 <section class="text-center py-10 bg-gray-200 min-h-screen flex items-center" data-aos="fade-down">
     <div class="w-full max-w-4xl mx-auto">
         <h1 class="text-4xl font-normal text-custom-gray font-omnes">Cê já comprou algo pela internet.</h1>
@@ -5,7 +12,8 @@
         <p class="text-xl font-omnes text-black font-normal">toda oferta precisa <b>de uma página clara,</b> persuasiva
             e focada na conversão.</p>
         <button type="button"
-            class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer" act="#planos">QUERO
+            class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer"
+            act="#planos">QUERO
             UMA PÁGINA QUE VENDE!</button>
     </div>
 </section>
@@ -19,7 +27,8 @@
                 importa?</h2>
             <p class="font-omnes mb-5 text-custom-gray"><b>Página de vendas</b> é uma estrutura pensada<br> para guiar o
                 visitante até a decisão de compra.</p>
-            <p class="font-omnes mb-5 font-light text-custom-gray">seja um curso, um serviço ou um produto, vender online sem uma página
+            <p class="font-omnes mb-5 font-light text-custom-gray">seja um curso, um serviço ou um produto, vender
+                online sem uma página
                 de vendas é tipo tentar vender de boca a boca na internet.</p>
             <p class="font-omnes font-bold text-black">vai no grito, mas não vai longe.</p>
         </div>
@@ -136,7 +145,8 @@
         </div>
         <div class="w-full flex justify-center">
             <button type="button"
-                class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer" act="#planos">Já
+                class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer"
+                act="#planos">Já
                 entendi, quero criar minha página!</button>
         </div>
     </div>
@@ -368,11 +378,15 @@
                     </div>
                 </div>
                 <div class="w-full flex justify-center">
-                    <!-- <button type="button"
-                        class="model-selected w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5"
-                        product_id="65">Escolher
-                        este modelo</button> -->
-                        <a href="https://checkout.infinitepay.io/marcos-macedo-bfr?items=[{&quot;name&quot;:&quot;Vapt+Vupt&quot;,&quot;price&quot;:100000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/">Escolher este modelo</a>
+                    <?php if (is_user_logged_in()): ?>
+                        <a
+                            href="https://checkout.infinitepay.io/marcos-macedo-bfr?items=[{&quot;name&quot;:&quot;Vapt+Vupt&quot;,&quot;price&quot;:100000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/obrigado&customer_name=<?php echo $nome?>&customer_email=<?php echo $email?>&customer_cellphone=<?php echo $telefone?>">Escolher
+                            este modelo</a>
+                    <?php else: ?>
+                        <button type="button"
+                            class="modalBtn w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5">Escolher
+                            este modelo</button>
+                    <?php endif ?>
                 </div>
             </div>
         </div>
@@ -524,10 +538,15 @@
                     </div>
                 </div>
                 <div class="w-full flex justify-center">
-                    <!-- <button type="button"
-                        class="model-selected w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5" act="72">Escolher
-                        este modelo</button> -->
-                        <a href="https://checkout.infinitepay.io/marcos-macedo-bfr?items=[{&quot;name&quot;:&quot;Pitaco&quot;,&quot;price&quot;:180000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/">Escolher este modelo</a>
+                    <?php if (is_user_logged_in()): ?>
+                        <a
+                        href="https://checkout.infinitepay.io/marcos-macedo-bfr?items=[{&quot;name&quot;:&quot;Pitaco&quot;,&quot;price&quot;:180000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/obrigado&customer_name=<?php echo $nome?>&customer_email=<?php echo $email?>&customer_cellphone=<?php echo $telefone?>">Escolher
+                        este modelo</a>
+                    <?php else: ?>
+                        <button type="button"
+                            class="modalBtn w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5">Escolher
+                            este modelo</button>
+                    <?php endif ?>
                 </div>
             </div>
         </div>
@@ -678,11 +697,15 @@
                     </div>
                 </div>
                 <div class="w-full flex justify-center">
-                    <!-- <button type="button"
-                        class="model-selected w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5"
-                        product_id="73">Escolher
-                        este modelo</button> -->
-                        <a href="https://checkout.infinitepay.io/marcos-macedo-bfr?items=[{&quot;name&quot;:&quot;Sob+medida&quot;,&quot;price&quot;:350000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/">Escolher este modelo</a>
+                    <?php if (is_user_logged_in()): ?>
+                        <a
+                        href="https://checkout.infinitepay.io/marcos-macedo-bfr?items=[{&quot;name&quot;:&quot;Sob+medida&quot;,&quot;price&quot;:350000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/obrigado&customer_name=<?php echo $nome?>&customer_email=<?php echo $email?>&customer_cellphone=<?php echo $telefone?>">Escolher
+                        este modelo</a>
+                    <?php else: ?>
+                        <button type="button"
+                            class="modalBtn w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5">Escolher
+                            este modelo</button>
+                    <?php endif ?>
                 </div>
             </div>
         </div>
@@ -858,7 +881,8 @@
             <b>A segunda melhor é agora.</b>
         </p>
         <button type="button"
-            class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer" act="#planos">Garanta
+            class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer"
+            act="#planos">Garanta
             já a sua!</button>
     </div>
 </section>

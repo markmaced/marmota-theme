@@ -1,100 +1,154 @@
 jQuery(document).ready(function ($) {
       AOS.init()
-      jQuery(document).ready(function ($) {
-            $(".model-selected").click(function () {
-                  var product_id = $(this).attr("product_id");
+      $(document).on('click', 'button[act="#planos"]', function (event) {
+            event.preventDefault();
 
+            var target = $($.attr(this, 'act'));
+
+            if (target.length) {
+                  $('html, body').animate({
+                        scrollTop: target.offset().top
+                  }, 800);
+            }
+      });
+      $(document).on('click', '.modalBtn', function () {
+            $("#customModal").fadeIn(300).css("display", "flex");
+      });
+      $('#loginModal').on('click', function (e) {
+            e.preventDefault()
+            $('#loginForm').removeClass('hidden')
+            $('#registerForm').addClass('hidden')
+      })
+      $('#registerModal').on('click', function (e) {
+            e.preventDefault()
+            $('#registerForm').removeClass('hidden')
+            $('#loginForm').addClass('hidden')
+      })
+      $("#closeModal, #customModal").click(function (e) {
+            if (e.target.id === "customModal" || e.target.id === "closeModal") {
+                  $("#customModal").fadeOut(300);
+            }
+      });
+      $("#sendLogin").on("click", function (e) {
+            e.preventDefault();
+
+            let email = $("#floating_login_email").val();
+            let password = $("#floating_login_password").val();
+
+            if (!email || !password) {
                   Swal.fire({
-                        title: "Adicionando ao carrinho...",
-                        text: "Aguarde um momento.",
-                        icon: "info",
-                        showConfirmButton: false,
-                        allowOutsideClick: false,
-                        didOpen: () => {
-                              Swal.showLoading();
-                        }
+                        icon: "warning",
+                        title: "Atenção",
+                        text: "Preencha todos os campos!"
                   });
+                  return;
+            }
 
-                  $.ajax({
-                        type: "POST",
-                        url: wpurl.ajax,
-                        data: {
-                              action: "woocommerce_ajax_add_to_cart",
-                              product_id: product_id,
-                        },
-                        success: function (response) {
-                              Swal.close(); // Fecha o alerta de loading
-
-                              // Exibe alerta de sucesso
+            $.ajax({
+                  type: "POST",
+                  url: wpurl.ajax,
+                  data: {
+                        action: "custom_ajax_login",
+                        email: email,
+                        password: password
+                  },
+                  beforeSend: function () {
+                        $("#sendLogin").text("Entrando...").prop("disabled", true);
+                  },
+                  success: function (response) {
+                        if (response.success) {
                               Swal.fire({
-                                    title: "Produto adicionado!",
-                                    text: "O produto foi adicionado ao carrinho.",
                                     icon: "success",
-                                    showCancelButton: true,
-                                    confirmButtonText: "Ir para o carrinho",
-                              }).then((result) => {
-                                    if (result.isConfirmed) {
-                                          window.location.href = "/carrinho/"; // Redireciona para o carrinho
-                                    }
+                                    title: "Login realizado!",
+                                    text: "Redirecionando...",
+                                    showConfirmButton: true
+                              }).then(() => {
+                                    window.location.hash = "planos";
+                                    window.location.reload();
                               });
-                        },
-                        error: function () {
+                        } else {
                               Swal.fire({
-                                    title: "Erro!",
-                                    text: "Ocorreu um erro ao adicionar o produto.",
-                                    icon: "error"
+                                    icon: "error",
+                                    title: "Erro no login",
+                                    text: response.message
                               });
                         }
-                  });
-            });
-            $(document).on('click', 'button[act="#planos"]', function (event) {
-                  event.preventDefault();
-
-                  var target = $($.attr(this, 'act'));
-
-                  if (target.length) {
-                        $('html, body').animate({
-                              scrollTop: target.offset().top
-                        }, 800);
+                  },
+                  error: function () {
+                        Swal.fire({
+                              icon: "error",
+                              title: "Erro",
+                              text: "Ocorreu um erro ao tentar fazer login."
+                        });
+                  },
+                  complete: function () {
+                        $("#sendLogin").text("Entrar").prop("disabled", false);
                   }
             });
-            function updateFee() {
-                  var paymentMethod = $('input[name="payment_method"]:checked').val();
-
-                  Swal.fire({
-                        title: "Alterando método de pagamento...",
-                        text: "Aguarde um momento.",
-                        icon: "info",
-                        showConfirmButton: false,
-                        allowOutsideClick: false,
-                        didOpen: () => {
-                              Swal.showLoading();
-                        }
-                  });
-
-                  $.ajax({
-                        type: 'POST',
-                        url: wpurl.ajax,
-                        data: {
-                              action: 'calculate_custom_fee',
-                              payment_method: paymentMethod
-                        },
-                        success: function (response) {
-                              if (response.success) {
-                                    console.log(response.data)
-                                    $('.order-total').html('<th>Total</th><td><strong><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">R$</span>&nbsp;'+response.data.total+'</bdi></span></strong> </td>')
-                                    if(response.data.fee == 0){
-                                          $('.fee').html('')
-                                    }else{
-                                          $('.fee').html('<th>Taxa Crédito</th><td><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">R$</span>&nbsp;'+response.data.fee+'</bdi></span></td>')
-                                    }
-                                    Swal.close();
-                              }
-                        }
-                  });
-            }
-            $(document).on('change', '.woocommerce-checkout-payment input[name="payment_method"]', function () {
-                  updateFee()
-            });
       });
-})
+      $("#registerLeadWpp").on("click", function (e) {
+            e.preventDefault();
+        
+            let name = $("#register_name").val();
+            let email = $("#register_email").val();
+            let telefone = $("#register_telefone").val();
+            let password = $("#register_password").val();
+        
+            if (!name || !email || !telefone || !password) {
+                Swal.fire({
+                    icon: "warning",
+                    title: "Atenção",
+                    text: "Preencha todos os campos!"
+                });
+                return;
+            }
+        
+            $.ajax({
+                type: "POST",
+                url: wpurl.ajax,
+                data: {
+                    action: "custom_ajax_register",
+                    name: name,
+                    email: email,
+                    telefone: telefone,
+                    password: password
+                },
+                beforeSend: function () {
+                    $("#registerLeadWpp").text("Registrando...").prop("disabled", true);
+                },
+                success: function (response) {
+                    if (response.success) {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Cadastro realizado!",
+                            text: "Redirecionando...",
+                            showConfirmButton: false,
+                            timer: 500
+                        }).then(() => {
+                              window.location.hash = "planos";
+                              window.location.reload();
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Erro no cadastro",
+                            text: response.message
+                        });
+                    }
+                },
+                error: function (error) {
+                  console.log(error)
+                    Swal.fire({
+                        icon: "error",
+                        title: "Erro",
+                        text: "Ocorreu um erro ao tentar fazer o cadastro."
+                    });
+                },
+                complete: function () {
+                    $("#registerLeadWpp").text("Registrar").prop("disabled", false);
+                }
+            });
+        });
+        
+
+});
