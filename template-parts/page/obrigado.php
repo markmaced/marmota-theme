@@ -44,7 +44,7 @@ add_action('template_redirect', function() {
 
             // Redirecionar para a página de obrigado com o ID do pedido
             $order_id = $order->get_id();
-            wp_redirect(add_query_arg('order_id', $order_id, get_permalink()));
+            // wp_redirect(add_query_arg('order_id', $order_id, get_permalink()));
             exit;
         } else {
             wp_redirect(home_url());
