@@ -2,13 +2,15 @@
 
 add_action('template_redirect', function() {
     if (is_page('obrigado')) {
-        if (!isset($_GET['receipt_url']) || !isset($_GET['transaction_id'])) {
-            wp_redirect(home_url());
-            exit;
-        }
+        // if (!isset($_GET['receipt_url']) || !isset($_GET['transaction_id'])) {
+        //     wp_redirect(home_url());
+        //     exit;
+        // }
 
-        $user_id = get_current_user_id();
+        // $user_id = get_current_user_id();
+        $user_id = 1;
         if (!$user_id) {
+            log_to_file('Não tá logado')
             wp_redirect(home_url());
             exit;
         }
