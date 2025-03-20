@@ -19,7 +19,7 @@ function custom_ajax_register() {
         'user_email' => $email,
         'first_name' => $name,
         'user_pass' => $password,
-        'role' => 'subscriber'
+        'role' => 'customer'
     ]);
 
     if (is_wp_error($user_id)) {
