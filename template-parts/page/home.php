@@ -1,28 +1,30 @@
-<?php 
+<?php
 $user = wp_get_current_user();
 $user_id = get_current_user_id();
 $nome = is_user_logged_in() ? $user->display_name : '';
 $email = is_user_logged_in() ? $user->user_email : '';
-$telefone = is_user_logged_in() ? get_field('telefone' , 'user_'.$user_id) : '';
+$telefone = is_user_logged_in() ? get_field('telefone', 'user_' . $user_id) : '';
 ?>
-<section class="text-center py-10 bg-gray-200 min-h-screen flex items-center" data-aos="fade-down">
+<section class="text-center md:py-10 py-40 md:px-0 px-5 bg-gray-200 md:min-h-screen h-auto flex items-center"
+    data-aos="fade-down">
     <div class="w-full max-w-4xl mx-auto">
-        <h1 class="text-4xl font-normal text-custom-gray font-omnes">Cê já comprou algo pela internet.</h1>
-        <h2 class="text-4xl font-normal text-black font-omnes mb-2">Agora é a <b>sua vez</b> de vender.</h2>
-        <p class="text-xl font-omnes text-black font-normal">toda oferta precisa <b>de uma página clara,</b> persuasiva
+        <h1 class="md:text-4xl text-2xl font-normal text-custom-gray font-omnes">Cê já comprou algo pela internet.</h1>
+        <h2 class="md:text-4xl text-2xl font-normal text-black font-omnes mb-2">Agora é a <b>sua vez</b> de vender.</h2>
+        <p class="text-base font-omnes text-black font-normal">toda oferta precisa <b>de uma página clara,</b>
+            persuasiva
             e focada na conversão.</p>
         <button type="button"
-            class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer"
+            class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer md:text-base text-sm"
             act="#planos">QUERO
             UMA PÁGINA QUE VENDE!</button>
     </div>
 </section>
-<section class="w-full py-24">
-    <div class="max-w-4xl mx-auto flex gap-5">
-        <div class="w-1/2" data-aos="fade-left">
+<section class="w-full md:py-24 py-10">
+    <div class="max-w-4xl mx-auto md:flex md:gap-5">
+        <div class="md:w-1/2 w-full md:mb-0 mb-5" data-aos="fade-left">
             <img src="<?php echo get_theme_image('retangulo2.png') ?>" class="w-full h-[320px]">
         </div>
-        <div class="w-1/2 pl-10" data-aos="fade-right">
+        <div class="md:w-1/2 w-full md:pl-10 md:px-0 px-5" data-aos="fade-right">
             <h2 class="text-4xl font-omnes font-normal mb-5">O que é uma<br> <b>Landing Page</b> e por<br> que isso
                 importa?</h2>
             <p class="font-omnes mb-5 text-custom-gray"><b>Página de vendas</b> é uma estrutura pensada<br> para guiar o
@@ -35,19 +37,22 @@ $telefone = is_user_logged_in() ? get_field('telefone' , 'user_'.$user_id) : '';
     </div>
 </section>
 
-<section class="w-full py-20">
+<section class="w-full md:py-20 py-10">
     <div class="max-w-4xl mx-auto">
-        <div class="w-full flex gap-10 mb-16 justify-center" data-aos="fade-right">
-            <div class="w-[30%]">
-                <h2 class="text-5xl font-normal font-omnes text-right">e por que <br><b>eu deveria <br>ter uma?</b></h2>
+        <div class="w-full md:flex md:gap-10 mb-16 justify-center md:px-0 px-5" data-aos="fade-right">
+            <div class="md:w-[30%] w-full">
+                <h2 class="md:text-5xl text-3xl font-normal font-omnes md:text-right md:mb-0 mb-5">e por que <br><b>eu
+                        deveria <br>ter uma?</b></h2>
             </div>
-            <div class="w-[70%]">
-                <p class="mb-5 font-omnes text-2xl">cê já clicou num anúncio <br>e desistiu no meio porque a <br>página
-                    era confusa?</p>
-                <p class="font-omnes text-2xl">— por aqui, a gente não te deixa passar por isso!</p>
+            <div class="md:w-[70%] w-full">
+                <p class="mb-5 font-omnes md:text-2xl text-xl">cê já clicou num anúncio <br>e desistiu no meio porque a
+                    <br>página
+                    era confusa?
+                </p>
+                <p class="font-omnes md:text-2xl text-xl">— por aqui, a gente não te deixa passar por isso!</p>
             </div>
         </div>
-        <div class="w-full flex flex-col items-center justify-center">
+        <div class="w-full flex flex-col items-center justify-center px-5 md:px-0">
             <ul class="mt-4 space-y-2">
                 <li class="flex items-center font-omnes font-bold gap-7 mb-5" data-aos="fade-up">
                     <span class="mr-2">
@@ -98,16 +103,20 @@ $telefone = is_user_logged_in() ? get_field('telefone' , 'user_'.$user_id) : '';
     </div>
 </section>
 
-<section class="w-full py-20">
+<section class="w-full md:py-20 py-10">
     <div class="max-w-4xl mx-auto">
-        <div class="w-full flex gap-10 mb-16 justify-center" data-aos="fade-right">
+        <div class="w-full flex gap-10 md:mb-16 mb-10 justify-center md:px-0 px-5" data-aos="fade-right">
             <div class="w-full">
-                <h2 class="text-5xl font-normal font-omnes text-left">chegou até aqui, <br>mas ainda não sabe se <br>é
+                <h2 class="md:text-5xl text-3xl font-normal font-omnes text-left">chegou até aqui, <br>mas ainda não
+                    sabe se <br>é
                     procê? <b>Prestenção:</b></h2>
             </div>
         </div>
-        <div class="w-full flex gap-10 items-center justify-center mb-10">
-            <div class="w-1/2">
+        <div class="w-full md:flex md:gap-10 md:items-center md:justify-center mb-10">
+            <div class="md:w-1/2 w-full md:hidden block mb-10" data-aos="fade-left">
+                <img src="<?php echo get_theme_image('retangulo2.png') ?>" class="w-full h-[320px]">
+            </div>
+            <div class="md:w-1/2 w-full md:px-0 px-5">
                 <ul class="mt-4 space-y-2">
                     <li class="flex items-center font-omnes font-bold gap-7 mb-5" data-aos="fade-up">
                         <span class="mr-2">
@@ -139,38 +148,42 @@ $telefone = is_user_logged_in() ? get_field('telefone' , 'user_'.$user_id) : '';
                     </li>
                 </ul>
             </div>
-            <div class="w-1/2" data-aos="fade-left">
+            <div class="md:w-1/2 w-full md:block hidden" data-aos="fade-left">
                 <img src="<?php echo get_theme_image('retangulo2.png') ?>" class="w-full h-[320px]">
             </div>
         </div>
-        <div class="w-full flex justify-center">
+        <div class="w-full flex justify-center md:px-0 px-5">
             <button type="button"
-                class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer"
+                class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer md:text-base text-sm"
                 act="#planos">Já
                 entendi, quero criar minha página!</button>
         </div>
     </div>
 </section>
 
-<section class="w-full py-20">
-    <div class="max-w-4xl mx-auto flex flex-col items-center text-center">
-        <h2 class="text-5xl font-normal font-omnes text-center mb-8 leading-tight" data-aos="fade-down">
+<section class="w-full md:py-20 py-10">
+    <div class="max-w-4xl mx-auto flex flex-col items-center text-center md:px-0 px-5">
+        <h2 class="md:text-5xl text-3xl font-normal font-omnes text-center mb-8 leading-tight" data-aos="fade-down">
             rápido e sem enrolação.<br>
             seu site pronto em <b>5 passos.</b>
         </h2>
-        <ul class="mt-4 space-y-6 flex flex-col items-center pl-36 w-full">
+        <ul class="mt-4 space-y-6 flex flex-col items-center md:pl-36 w-full">
             <li class="flex items-center font-omnes font-bold gap-4 w-full" data-aos="fade-up">
-                <span
-                    class="w-10 h-10 flex items-center justify-center text-xl bg-black text-white rounded-full">1</span>
-                <div class="text-left">
+                <div class="md:w-[8%] w-[15%]">
+                    <span
+                        class="w-10 h-10 flex items-center justify-center text-xl bg-black text-white rounded-full">1</span>
+                </div>
+                <div class="text-left md:w-[92%] w-[85%]">
                     Escolha seu modelo
                     <p class="font-normal font-omnes">Selecione entre os modelos apresentados.</p>
                 </div>
             </li>
             <li class="flex items-center font-omnes font-bold gap-4 w-full" data-aos="fade-up">
-                <span
-                    class="w-10 h-10 flex items-center justify-center text-xl bg-black text-white rounded-full">2</span>
-                <div class="text-left">
+                <div class="md:w-[8%] w-[15%]">
+                    <span
+                        class="w-10 h-10 flex items-center justify-center text-xl bg-black text-white rounded-full">2</span>
+                </div>
+                <div class="text-left md:w-[92%] w-[85%]">
                     Nos envie as informações
                     <p class="font-normal font-omnes md:w-2/3">Se for um modelo personalizado, passamos um briefing
                         rápido para
@@ -178,63 +191,85 @@ $telefone = is_user_logged_in() ? get_field('telefone' , 'user_'.$user_id) : '';
                 </div>
             </li>
             <li class="flex items-center font-omnes font-bold gap-4 w-full" data-aos="fade-up">
-                <span
-                    class="w-10 h-10 flex items-center justify-center text-xl bg-black text-white rounded-full">3</span>
-                <div class="text-left">
+                <div class="md:w-[8%] w-[15%]">
+                    <span
+                        class="w-10 h-10 flex items-center justify-center text-xl bg-black text-white rounded-full">3</span>
+                </div>
+                <div class="text-left md:w-[92%] w-[85%]">
                     Produção e ajustes
                     <p class="font-normal font-omnes">Criamos a estrutura da landing page completa.</p>
                 </div>
             </li>
             <li class="flex items-center font-omnes font-bold gap-4 w-full" data-aos="fade-up">
-                <span
-                    class="w-10 h-10 flex items-center justify-center text-xl bg-black text-white rounded-full">4</span>
-                <div class="text-left">
+                <div class="md:w-[8%] w-[15%]">
+                    <span
+                        class="w-10 h-10 flex items-center justify-center text-xl bg-black text-white rounded-full">4</span>
+                </div>
+                <div class="text-left md:w-[92%] w-[85%]">
                     Revisão e finalização
                     <p class="font-normal font-omnes">Cê recebe a versão pronta para aprovação.</p>
                 </div>
             </li>
             <li class="flex items-center font-omnes font-bold gap-4 w-full" data-aos="fade-up">
-                <span
-                    class="w-10 h-10 flex items-center justify-center text-xl bg-black text-white rounded-full">5</span>
-                <div class="text-left">
+                <div class="md:w-[8%] w-[15%]">
+                    <span
+                        class="w-10 h-10 flex items-center justify-center text-xl bg-black text-white rounded-full">5</span>
+                </div>
+                <div class="text-left md:w-[92%] w-[85%]">
                     Entrega e suporte
-                    <p class="font-normal font-omnes">Tá no ar. Tá rodando. Tá vendendo. E se precisar, tamo junto.</p>
+                    <p class="font-normal font-omnes">Tá no ar. Tá rodando. Tá vendendo. E se precisar, tamo junto.
+                    </p>
                 </div>
             </li>
         </ul>
     </div>
 </section>
 
-<section class="w-full py-20">
+<section class="w-full md:py-20 py-10">
     <div class="max-w-6xl mx-auto">
         <h2 class="text-5xl font-normal font-omnes text-center mb-8 leading-tight" data-aos="fade-down">
             Conheça nossos modelos</b>
         </h2>
-        <div class="w-full flex gap-3">
-            <div class="w-1/5">
-                <img src="<?php echo get_theme_image('retangulo4.png') ?>" class="w-full">
+        <div class="w-full md:flex gap-3 md:px-0 px-5">
+            <div class="md:w-1/5 w-full max-w-full max-h-full">
+                <a href="https://demos.marmotastudiocriativo.com.br/template-1" target="_blank">
+                    <img src="<?php echo get_theme_image('template-1.png') ?>"
+                        class="w-full transition-all duration-500 hover:scale-105">
+                </a>
             </div>
-            <div class="w-1/5">
-                <img src="<?php echo get_theme_image('retangulo4.png') ?>" class="w-full">
+            <div class="md:w-1/5 w-full max-w-full max-h-full">
+                <a href="https://demos.marmotastudiocriativo.com.br/template-2" target="_blank">
+                    <img src="<?php echo get_theme_image('template-2.png') ?>"
+                        class="w-full transition-all duration-500 hover:scale-105">
+                </a>
             </div>
-            <div class="w-1/5">
-                <img src="<?php echo get_theme_image('retangulo4.png') ?>" class="w-full">
+            <div class="md:w-1/5 w-full max-w-full max-h-full">
+                <a href="https://demos.marmotastudiocriativo.com.br/template-3" target="_blank">
+                    <img src="<?php echo get_theme_image('template-3.png') ?>"
+                        class="w-full transition-all duration-500 hover:scale-105">
+                </a>
             </div>
-            <div class="w-1/5">
-                <img src="<?php echo get_theme_image('retangulo4.png') ?>" class="w-full">
+            <div class="md:w-1/5 w-full max-w-full max-h-full">
+                <a href="https://demos.marmotastudiocriativo.com.br/template-4" target="_blank">
+                    <img src="<?php echo get_theme_image('template-4.png') ?>"
+                        class="w-full transition-all duration-500 hover:scale-105">
+                </a>
             </div>
-            <div class="w-1/5">
-                <img src="<?php echo get_theme_image('retangulo4.png') ?>" class="w-full">
+            <div class="md:w-1/5 w-full max-w-full max-h-full">
+                <a href="https://demos.marmotastudiocriativo.com.br/template-5" target="_blank">
+                    <img src="<?php echo get_theme_image('template-5.png') ?>"
+                        class="w-full transition-all duration-500 hover:scale-105">
+                </a>
             </div>
         </div>
     </div>
 </section>
 
-<section class="max-w-5xl mx-auto py-20" data-aos="zoom-in" id="planos">
+<section class="max-w-5xl mx-auto md:py-20 py-10" data-aos="zoom-in" id="planos">
     <h2 class="text-5xl font-normal font-omnes text-center mb-14 leading-tight" data-aos="fade-down">
         Escolha o seu:</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6 relative">
-        <div class="w-full max-w-sm">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6 relative px-5 md:px-0">
+        <div class="w-full max-w-sm md:mb-0 mb-5">
             <div class="py-3 rounded-t-3xl w-4/5 mx-auto bg-black flex justify-center px-5 items-center">
                 <h2 class="text-3xl font-bold text-white font-omnes text-center">Vapt Vupt</h2>
             </div>
@@ -380,7 +415,7 @@ $telefone = is_user_logged_in() ? get_field('telefone' , 'user_'.$user_id) : '';
                 <div class="w-full flex justify-center">
                     <?php if (is_user_logged_in()): ?>
                         <a
-                            href="https://checkout.infinitepay.io/marcos-macedo-bfr?items=[{&quot;name&quot;:&quot;Vapt+Vupt&quot;,&quot;price&quot;:100000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/obrigado&customer_name=<?php echo $nome?>&customer_email=<?php echo $email?>&customer_cellphone=<?php echo $telefone?>">Escolher
+                            href="https://checkout.infinitepay.io/marcos-macedo-bfr?items=[{&quot;name&quot;:&quot;Vapt+Vupt&quot;,&quot;price&quot;:100000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/obrigado&customer_name=<?php echo $nome ?>&customer_email=<?php echo $email ?>&customer_cellphone=<?php echo $telefone ?>" target="_blank">Escolher
                             este modelo</a>
                     <?php else: ?>
                         <button type="button"
@@ -390,7 +425,7 @@ $telefone = is_user_logged_in() ? get_field('telefone' , 'user_'.$user_id) : '';
                 </div>
             </div>
         </div>
-        <div class="w-full max-w-sm">
+        <div class="w-full max-w-sm md:mb-0 mb-5">
             <div class="py-3 rounded-t-3xl w-4/5 mx-auto bg-black flex justify-center px-5 items-center">
                 <h2 class="text-3xl font-bold text-white font-omnes text-center">Pitaco</h2>
             </div>
@@ -540,8 +575,8 @@ $telefone = is_user_logged_in() ? get_field('telefone' , 'user_'.$user_id) : '';
                 <div class="w-full flex justify-center">
                     <?php if (is_user_logged_in()): ?>
                         <a
-                        href="https://checkout.infinitepay.io/marcos-macedo-bfr?items=[{&quot;name&quot;:&quot;Pitaco&quot;,&quot;price&quot;:180000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/obrigado&customer_name=<?php echo $nome?>&customer_email=<?php echo $email?>&customer_cellphone=<?php echo $telefone?>">Escolher
-                        este modelo</a>
+                            href="https://checkout.infinitepay.io/marcos-macedo-bfr?items=[{&quot;name&quot;:&quot;Pitaco&quot;,&quot;price&quot;:180000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/obrigado&customer_name=<?php echo $nome ?>&customer_email=<?php echo $email ?>&customer_cellphone=<?php echo $telefone ?>" target="_blank">Escolher
+                            este modelo</a>
                     <?php else: ?>
                         <button type="button"
                             class="modalBtn w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5">Escolher
@@ -699,8 +734,8 @@ $telefone = is_user_logged_in() ? get_field('telefone' , 'user_'.$user_id) : '';
                 <div class="w-full flex justify-center">
                     <?php if (is_user_logged_in()): ?>
                         <a
-                        href="https://checkout.infinitepay.io/marcos-macedo-bfr?items=[{&quot;name&quot;:&quot;Sob+medida&quot;,&quot;price&quot;:350000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/obrigado&customer_name=<?php echo $nome?>&customer_email=<?php echo $email?>&customer_cellphone=<?php echo $telefone?>">Escolher
-                        este modelo</a>
+                            href="https://checkout.infinitepay.io/marcos-macedo-bfr?items=[{&quot;name&quot;:&quot;Sob+medida&quot;,&quot;price&quot;:350000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/obrigado&customer_name=<?php echo $nome ?>&customer_email=<?php echo $email ?>&customer_cellphone=<?php echo $telefone ?>" target="_blank">Escolher
+                            este modelo</a>
                     <?php else: ?>
                         <button type="button"
                             class="modalBtn w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5">Escolher
@@ -713,7 +748,7 @@ $telefone = is_user_logged_in() ? get_field('telefone' , 'user_'.$user_id) : '';
     </div>
 </section>
 
-<section class="bg-white py-20 px-5 md:px-0">
+<section class="bg-white md:py-20 py-10 px-5 md:px-0">
     <div class="max-w-4xl mx-auto">
         <h2 class="text-black text-4xl text-center font-medium">Ficou com dúvidas?</h2>
         <p class="text-xl font-normal text-custom-gray mb-10 text-center">Aqui estão as respostas.</p>
@@ -873,15 +908,16 @@ $telefone = is_user_logged_in() ? get_field('telefone' , 'user_'.$user_id) : '';
         </div>
     </div>
 </section>
-<section class="text-center py-20 flex items-center" data-aos="fade-down">
-    <div class="w-full max-w-4xl mx-auto">
-        <h2 class="text-4xl font-semibold text-black font-omnes mb-3">Se seus clientes estão<br> na internet, sua oferta
+<section class="text-center md:py-20 py-10 flex items-center" data-aos="fade-down">
+    <div class="w-full max-w-4xl mx-auto px-5 md:px-0">
+        <h2 class="md:text-4xl text-2xl font-semibold text-black font-omnes mb-3">Se seus clientes estão<br> na
+            internet, sua oferta
             tem<br> que estar também.</h2>
         <p class="text-xl font-normal text-black font-omnes mb-2">A melhor hora para ter uma landing page foi ontem.
             <b>A segunda melhor é agora.</b>
         </p>
         <button type="button"
-            class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer"
+            class="mt-4 px-6 py-2 bg-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer md:text-base text-sm"
             act="#planos">Garanta
             já a sua!</button>
     </div>
