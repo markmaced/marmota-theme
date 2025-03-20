@@ -35,7 +35,7 @@ add_action('template_redirect', function() {
             $order = wc_create_order([
                 'customer_id' => $user_id
             ]);
-            log_to_file($order);
+            log_to_file(print_r($order ,true));
             $order->add_product(wc_get_product($product_id), $quantidade);
             $order->set_payment_method('infinitepay');
             $order->set_payment_method_title('InfinitePay');
