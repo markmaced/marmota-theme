@@ -11,7 +11,7 @@ add_action('template_redirect', function () {
         $user_id = 1;
         if (!$user_id) {
             log_to_file('Não tá logado');
-            wp_redirect(home_url());
+            // wp_redirect(home_url());
             exit;
         }
 
@@ -38,8 +38,7 @@ add_action('template_redirect', function () {
         // wp_redirect(add_query_arg('order_id', $order_id, get_permalink()));
         exit;
     } else {
-        wp_redirect(home_url());
-        exit;
+        log_to_file('Não é página de obrigado?');
     }
     if (isset($_GET['order_id'])) {
         $order = wc_get_order(intval($_GET['order_id']));
