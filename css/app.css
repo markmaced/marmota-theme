@@ -823,9 +823,6 @@
   .flex-col {
     flex-direction: column;
   }
-  .flex-wrap {
-    flex-wrap: wrap;
-  }
   .items-center {
     align-items: center;
   }
@@ -1420,11 +1417,6 @@
   .md\:flex-row {
     @media (width >= 782px) {
       flex-direction: row;
-    }
-  }
-  .md\:flex-nowrap {
-    @media (width >= 782px) {
-      flex-wrap: nowrap;
     }
   }
   .md\:items-baseline {

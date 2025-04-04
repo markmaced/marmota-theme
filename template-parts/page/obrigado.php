@@ -6,8 +6,8 @@
 //     exit;
 // }
 
-// $user_id = get_current_user_id();
-$user_id = 1;
+$user_id = get_current_user_id();
+// $user_id = 1;
 if (!$user_id) {
     log_to_file('Não tá logado');
     // wp_redirect(home_url());
