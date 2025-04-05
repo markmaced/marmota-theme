@@ -88,99 +88,185 @@ jQuery(document).ready(function ($) {
       });
       $("#registerLeadWpp").on("click", function (e) {
             e.preventDefault();
-        
+
             let name = $("#register_name").val();
             let email = $("#register_email").val();
             let telefone = $("#register_telefone").val();
             let password = $("#register_password").val();
-        
+
             if (!name || !email || !telefone || !password) {
-                Swal.fire({
-                    icon: "warning",
-                    title: "Atenção",
-                    text: "Preencha todos os campos!"
-                });
-                return;
+                  Swal.fire({
+                        icon: "warning",
+                        title: "Atenção",
+                        text: "Preencha todos os campos!"
+                  });
+                  return;
             }
-        
+
             $.ajax({
-                type: "POST",
-                url: wpurl.ajax,
-                data: {
-                    action: "custom_ajax_register",
-                    name: name,
-                    email: email,
-                    telefone: telefone,
-                    password: password
-                },
-                beforeSend: function () {
-                    $("#registerLeadWpp").text("Registrando...").prop("disabled", true);
-                },
-                success: function (response) {
-                    if (response.success) {
+                  type: "POST",
+                  url: wpurl.ajax,
+                  data: {
+                        action: "custom_ajax_register",
+                        name: name,
+                        email: email,
+                        telefone: telefone,
+                        password: password
+                  },
+                  beforeSend: function () {
+                        $("#registerLeadWpp").text("Registrando...").prop("disabled", true);
+                  },
+                  success: function (response) {
+                        if (response.success) {
+                              Swal.fire({
+                                    icon: "success",
+                                    title: "Cadastro realizado!",
+                                    text: "Redirecionando...",
+                                    showConfirmButton: false,
+                                    timer: 500
+                              }).then(() => {
+                                    window.location.hash = "planos";
+                                    window.location.reload();
+                              });
+                        } else {
+                              Swal.fire({
+                                    icon: "error",
+                                    title: "Erro no cadastro",
+                                    text: response.message
+                              });
+                        }
+                  },
+                  error: function (error) {
+                        console.log(error)
                         Swal.fire({
-                            icon: "success",
-                            title: "Cadastro realizado!",
-                            text: "Redirecionando...",
-                            showConfirmButton: false,
-                            timer: 500
-                        }).then(() => {
-                              window.location.hash = "planos";
-                              window.location.reload();
+                              icon: "error",
+                              title: "Erro",
+                              text: "Ocorreu um erro ao tentar fazer o cadastro."
                         });
-                    } else {
-                        Swal.fire({
-                            icon: "error",
-                            title: "Erro no cadastro",
-                            text: response.message
-                        });
-                    }
-                },
-                error: function (error) {
-                  console.log(error)
-                    Swal.fire({
-                        icon: "error",
-                        title: "Erro",
-                        text: "Ocorreu um erro ao tentar fazer o cadastro."
-                    });
-                },
-                complete: function () {
-                    $("#registerLeadWpp").text("Registrar").prop("disabled", false);
-                }
+                  },
+                  complete: function () {
+                        $("#registerLeadWpp").text("Registrar").prop("disabled", false);
+                  }
             });
-        });
-        $(document).on('click', '#proceedToInfinite', function(e) {
+      });
+      $(document).on('click', '#proceedToInfinite', function (e) {
             e.preventDefault();
-    
+
             $.ajax({
-                url: wpurl.ajax,
-                method: 'POST',
-                data: {
-                    action: 'get_cart_items'
-                },
-                success: function(response) {
-                    const items = response.items.map(item => ({
-                        name: item.name,
-                        price: Math.round(item.price * 100), // em centavos
-                        quantity: item.quantity
-                    }));      
-    
-                    const params = new URLSearchParams({
-                        items: JSON.stringify(items),
-                        redirect_url: 'https://marmota.devhouse.com.br/obrigado',
-                        customer_name: response.customer.name || '',
-                        customer_email: response.customer.email || '',
-                        customer_cellphone: response.customer.phone || ''
-                    });
-    
-                    const url = `https://checkout.infinitepay.io/marcos-macedo-bfr?${params.toString()}`;
-    
-                    // Redirecionar
-                    window.location.href = url;
-                },
-                error: function(err) {
-                    console.error('Erro ao coletar dados:', err);
-                }
+                  url: wpurl.ajax,
+                  method: 'POST',
+                  data: {
+                        action: 'get_cart_items'
+                  },
+                  success: function (response) {
+                        const items = response.items.map(item => ({
+                              id: item.id,
+                              name: item.name,
+                              price: Math.round(item.price * 100), // em centavos
+                              quantity: item.quantity
+                        }));
+
+                        localStorage.setItem('cartItems', JSON.stringify(items));
+
+                        const params = new URLSearchParams({
+                              items: JSON.stringify(items),
+                              redirect_url: 'https://marmota.devhouse.com.br/obrigado',
+                              customer_name: response.customer.name || '',
+                              customer_email: response.customer.email || '',
+                              customer_cellphone: response.customer.phone || ''
+                        });
+
+                        const url = `https://checkout.infinitepay.io/marcos-macedo-bfr?${params.toString()}`;
+
+                        // Redirecionar
+                        window.location.href = url;
+                  },
+                  error: function (err) {
+                        console.error('Erro ao coletar dados:', err);
+                  }
             });
-        });
+      });
+
+      if (wpurl.isPage) {
+            Swal.fire({
+                  title: 'Carregando pedido...',
+                  text: 'Estamos verificando os dados da sua compra',
+                  allowOutsideClick: false,
+                  didOpen: () => {
+                        Swal.showLoading();
+                  }
+            });
+            const urlParams = new URLSearchParams(window.location.search);
+            const transaction_nsu = urlParams.get('order_nsu');
+
+            if (!transaction_nsu) return;
+
+            // Verificar se o pedido já existe via Ajax
+            $.post(wpurl.ajax, {
+                  action: 'check_or_create_order',
+                  transaction_nsu: transaction_nsu,
+                  cart_items: localStorage.getItem('cart_items') || '[]' // já deve ter sido salvo antes
+            }, function (response) {
+                  if (response.success) {
+                        console.log('Pedido criado ou já existente:', response.order_id);
+                        localStorage.removeItem('cart_items');
+                  } else {
+                        console.error('Erro ao criar/verificar pedido:', response.data);
+                  }
+            });
+
+            const transaction_id = new URLSearchParams(window.location.search).get('order_nsu');
+            if (!transaction_id) return;
+
+            const cartItems = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                  const key = localStorage.key(i);
+                  try {
+                        const item = JSON.parse(localStorage.getItem(key));
+                        if (item?.id && item?.quantity) {
+                              cartItems.push({ id: item.id, quantity: item.quantity });
+                        }
+                  } catch (e) {
+                        console.warn('Erro ao ler item do localStorage:', e);
+                  }
+            }
+
+            $.ajax({
+                  url: wpurl.ajax,
+                  method: 'POST',
+                  data: {
+                        action: 'check_or_create_order',
+                        transaction_nsu: transaction_id,
+                        cart_items: JSON.stringify(cartItems)
+                  },
+                  success: function (response) {
+                        if (!response.success) {
+                              console.error('Erro:', response.data);
+                              return;
+                        }
+
+                        const order = response.data;
+
+                        $('#order-id').text(`#${order.order_id}`);
+                        $('#customer-name').text(order.customer.name);
+                        $('#customer-email').text(order.customer.email);
+                        $('#customer-phone').text(order.customer.phone);
+                        $('#order-total').text(order.total);
+
+                        const $itemsList = $('#order-items');
+                        $itemsList.empty();
+
+                        order.items.forEach(item => {
+                              const $li = $('<li>').addClass('text-gray-700').text(`${item.quantity}x ${item.name} - ${item.total}`);
+                              $itemsList.append($li);
+                        });
+
+                        Swal.close();
+                        localStorage.clear();
+                  },
+                  error: function (err) {
+                        console.error('Erro na requisição AJAX:', err);
+                  }
+            });
+      }
 });

@@ -78,7 +78,8 @@ function tailpress_enqueue_scripts() {
 		'wpurl',
 		array(
 			'ajax' => admin_url('admin-ajax.php'),
-			'siteUrl' => home_url()
+			'siteUrl' => home_url(),
+			'isPage' => is_page('obrigado')
 		)
 	);
 }
@@ -154,3 +155,5 @@ require_once($functions_path . 'login.php');
 require_once($functions_path . 'registro.php');
 require_once($functions_path . 'get-cart-itens.php');
 require_once($functions_path . 'infinite-pay-transiction.php');
+require_once($functions_path . 'orders-exist.php');
+require_once($functions_path . 'create-order-ajax.php');

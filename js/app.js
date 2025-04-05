@@ -161,12 +161,14 @@ jQuery(document).ready(function ($) {
       success: function success(response) {
         var items = response.items.map(function (item) {
           return {
+            id: item.id,
             name: item.name,
             price: Math.round(item.price * 100),
             // em centavos
             quantity: item.quantity
           };
         });
+        localStorage.setItem('cartItems', JSON.stringify(items));
         var params = new URLSearchParams({
           items: JSON.stringify(items),
           redirect_url: 'https://marmota.devhouse.com.br/obrigado',
@@ -184,6 +186,82 @@ jQuery(document).ready(function ($) {
       }
     });
   });
+  if (wpurl.isPage) {
+    Swal.fire({
+      title: 'Carregando pedido...',
+      text: 'Estamos verificando os dados da sua compra',
+      allowOutsideClick: false,
+      didOpen: function didOpen() {
+        Swal.showLoading();
+      }
+    });
+    var urlParams = new URLSearchParams(window.location.search);
+    var transaction_nsu = urlParams.get('order_nsu');
+    if (!transaction_nsu) return;
+
+    // Verificar se o pedido já existe via Ajax
+    $.post(wpurl.ajax, {
+      action: 'check_or_create_order',
+      transaction_nsu: transaction_nsu,
+      cart_items: localStorage.getItem('cart_items') || '[]' // já deve ter sido salvo antes
+    }, function (response) {
+      if (response.success) {
+        console.log('Pedido criado ou já existente:', response.order_id);
+        localStorage.removeItem('cart_items');
+      } else {
+        console.error('Erro ao criar/verificar pedido:', response.data);
+      }
+    });
+    var transaction_id = new URLSearchParams(window.location.search).get('order_nsu');
+    if (!transaction_id) return;
+    var cartItems = [];
+    for (var i = 0; i < localStorage.length; i++) {
+      var key = localStorage.key(i);
+      try {
+        var item = JSON.parse(localStorage.getItem(key));
+        if (item !== null && item !== void 0 && item.id && item !== null && item !== void 0 && item.quantity) {
+          cartItems.push({
+            id: item.id,
+            quantity: item.quantity
+          });
+        }
+      } catch (e) {
+        console.warn('Erro ao ler item do localStorage:', e);
+      }
+    }
+    $.ajax({
+      url: wpurl.ajax,
+      method: 'POST',
+      data: {
+        action: 'check_or_create_order',
+        transaction_nsu: transaction_id,
+        cart_items: JSON.stringify(cartItems)
+      },
+      success: function success(response) {
+        if (!response.success) {
+          console.error('Erro:', response.data);
+          return;
+        }
+        var order = response.data;
+        $('#order-id').text("#".concat(order.order_id));
+        $('#customer-name').text(order.customer.name);
+        $('#customer-email').text(order.customer.email);
+        $('#customer-phone').text(order.customer.phone);
+        $('#order-total').text(order.total);
+        var $itemsList = $('#order-items');
+        $itemsList.empty();
+        order.items.forEach(function (item) {
+          var $li = $('<li>').addClass('text-gray-700').text("".concat(item.quantity, "x ").concat(item.name, " - ").concat(item.total));
+          $itemsList.append($li);
+        });
+        Swal.close();
+        localStorage.clear();
+      },
+      error: function error(err) {
+        console.error('Erro na requisição AJAX:', err);
+      }
+    });
+  }
 });
 
 /***/ }),

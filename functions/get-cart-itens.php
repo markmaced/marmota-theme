@@ -10,6 +10,7 @@ function custom_get_cart_items()
     foreach (WC()->cart->get_cart() as $cart_item) {
         $product = $cart_item['data'];
         $items[] = array(
+            'id'       => $product->get_id(),
             'name'     => $product->get_name(),
             'price'    => (float) $product->get_price(), // será convertido para centavos no JS
             'quantity' => $cart_item['quantity'],
