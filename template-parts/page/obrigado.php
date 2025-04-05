@@ -1,8 +1,9 @@
 <?php
 $handle = 'marcos-macedo-bfr';
 $slug = $_GET['slug'] ?? '';
-$transaction_nsu = $_GET['order_nsu'] ?? '';
-$external_order_nsu = $transaction_nsu;
+$transaction_nsu = $_GET['transaction_id'] ?? '';
+$external_order_nsu = $_GET['order_nsu'];
+
 ?>
 
 <div class="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -37,7 +38,7 @@ $external_order_nsu = $transaction_nsu;
                         <div class="border p-4 rounded-lg shadow-sm bg-gray-100">
                             <p class="text-sm text-gray-500 mb-2">Produtos:</p>
                             <ul id="order-items" class="space-y-1">
-                                <!-- Produtos vão aqui via JS -->
+                                
                             </ul>
                         </div>
                         <div class="border p-4 rounded-lg shadow-sm bg-gray-100">
