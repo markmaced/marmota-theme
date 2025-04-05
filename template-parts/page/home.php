@@ -414,9 +414,10 @@ $telefone = is_user_logged_in() ? get_field('telefone', 'user_' . $user_id) : ''
                 </div>
                 <div class="w-full flex justify-center">
                     <?php if (is_user_logged_in()): ?>
-                        <a
-                            href="https://checkout.infinitepay.io/marcos-macedo-bfr?items=[{&quot;name&quot;:&quot;Vapt+Vupt&quot;,&quot;price&quot;:100000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/obrigado&customer_name=<?php echo $nome ?>&customer_email=<?php echo $email ?>&customer_cellphone=<?php echo $telefone ?>" target="_blank">Escolher
-                            este modelo</a>
+                        <!-- <a
+                            href="https://checkout.infinitepay.io/marcos-macedo-bfr?items=[{&quot;name&quot;:&quot;Vapt+Vupt&quot;,&quot;price&quot;:100000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/obrigado&customer_name=<?php #echo $nome ?>&customer_email=<?php #echo $email ?>&customer_cellphone=<?php #echo $telefone ?>" target="_blank">Escolher
+                            este modelo</a> -->
+                            <a href="<?php echo wc_get_cart_url(); ?>?add-to-cart=65" class="w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5">Escolher este modelo</a>
                     <?php else: ?>
                         <button type="button"
                             class="modalBtn w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5">Escolher

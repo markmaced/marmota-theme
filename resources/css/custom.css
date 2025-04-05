@@ -91,6 +91,28 @@ p#billing_country_field , #billing_state_field{
     margin-bottom: 40px;
     cursor: pointer;
 }
-#place_order{
-    
+.woocommerce a.remove {
+    display: block;
+    font-size: 12px !important;
+    height: auto !important;
+    width: 100% !important;
+    text-align: left !important;
+    line-height: 1 !important;
+    border-radius: 0 !important;
+    color: #000 !important;
+    text-decoration: none !important;
+    font-weight: 400 !important;
+    border: 0 !important;
+}
+.woocommerce a.remove:hover {
+    background: transparent !important;
+    color: #000 !important;
+}
+#coupon_code{
+    width: 190px !important;
+}
+a.button.product_type_simple.add_to_cart_button.ajax_add_to_cart {
+    background: #000;
+    color: #fff;
+    font-size: 12px;
 }

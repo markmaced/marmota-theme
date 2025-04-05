@@ -150,6 +150,40 @@ jQuery(document).ready(function ($) {
       }
     });
   });
+  $(document).on('click', '#proceedToInfinite', function (e) {
+    e.preventDefault();
+    $.ajax({
+      url: wpurl.ajax,
+      method: 'POST',
+      data: {
+        action: 'get_cart_items'
+      },
+      success: function success(response) {
+        var items = response.items.map(function (item) {
+          return {
+            name: item.name,
+            price: Math.round(item.price * 100),
+            // em centavos
+            quantity: item.quantity
+          };
+        });
+        var params = new URLSearchParams({
+          items: JSON.stringify(items),
+          redirect_url: 'https://marmota.devhouse.com.br/obrigado',
+          customer_name: response.customer.name || '',
+          customer_email: response.customer.email || '',
+          customer_cellphone: response.customer.phone || ''
+        });
+        var url = "https://checkout.infinitepay.io/marcos-macedo-bfr?".concat(params.toString());
+
+        // Redirecionar
+        window.location.href = url;
+      },
+      error: function error(err) {
+        console.error('Erro ao coletar dados:', err);
+      }
+    });
+  });
 });
 
 /***/ }),

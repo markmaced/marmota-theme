@@ -152,3 +152,5 @@ require_once($functions_path . 'theme-options.php');
 require_once($functions_path . 'log-to-file.php');
 require_once($functions_path . 'login.php');
 require_once($functions_path . 'registro.php');
+require_once($functions_path . 'get-cart-itens.php');
+require_once($functions_path . 'infinite-pay-transiction.php');
