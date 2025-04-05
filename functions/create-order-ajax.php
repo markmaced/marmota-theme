@@ -8,9 +8,9 @@ function check_or_create_order() {
     $cart_items_json = stripslashes($_POST['cart_items'] ?? '[]');
     $cart_items = json_decode($cart_items_json, true);
 
-    if (!$transaction_nsu || empty($cart_items)) {
-        wp_send_json_error('Parâmetros ausentes');
-    }
+    // if (!$transaction_nsu || empty($cart_items)) {
+    //     wp_send_json_error('Parâmetros ausentes');
+    // }
 
     // Verificar se já existe o pedido
     $existing_order_id = infinitepay_order_exists($transaction_nsu);
