@@ -249,7 +249,7 @@ jQuery(document).ready(function ($) {
         $('#customer-name').text(order.customer.name);
         $('#customer-email').text(order.customer.email);
         $('#customer-phone').text(order.customer.phone);
-        $('#order-total').text(order.total);
+        $('#order-total').html(order.total);
         var $itemsList = $('#order-items');
         $itemsList.empty();
         order.items.forEach(function (item) {
