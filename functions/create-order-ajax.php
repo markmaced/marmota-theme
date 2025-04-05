@@ -9,7 +9,7 @@ function check_or_create_order()
     $cart_items_json = stripslashes($_POST['cart_items'] ?? '[]');
     $cart_items = json_decode($cart_items_json, true);
 
-    if(!is_user_logged_in()){
+    if (!is_user_logged_in()) {
         wp_send_json_error('Você precisa logar para ver o pedido!');
     }
 
@@ -18,7 +18,7 @@ function check_or_create_order()
     if ($existing_order_id) {
         $order = wc_get_order($existing_order_id);
         $current_user_id = get_current_user_id();
-    
+
         // Verifica se o pedido pertence ao usuário logado
         if ($order->get_user_id() === $current_user_id) {
             wp_send_json_success(format_order_response($order));
@@ -53,6 +53,9 @@ function check_or_create_order()
     $order->calculate_totals();
     update_post_meta($order->get_id(), '_transaction_nsu', sanitize_text_field($transaction_nsu));
     $order->save();
+
+    WC()->mailer()->emails['WC_Email_New_Order']->trigger($order->get_id());
+    WC()->mailer()->emails['WC_Email_Customer_Processing_Order']->trigger($order->get_id());
 
     // $nsu_check = get_post_meta($order->get_id(), '_transaction_nsu', true);
     // log_to_file('NSU direto do postmeta: ' . $nsu_check);
