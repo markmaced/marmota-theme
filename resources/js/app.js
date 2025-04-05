@@ -177,7 +177,7 @@ jQuery(document).ready(function ($) {
                               });
 
                               if (isCart) {
-                                    const url = `https://checkout.infinitepay.io/marcos-macedo-bfr?${params.toString()}`;
+                                    const url = `https://checkout.infinitepay.io/aline_laranjo?${params.toString()}`;
                                     window.location.href = url;
                                     resolve(); // nada a retornar
                               } else {
