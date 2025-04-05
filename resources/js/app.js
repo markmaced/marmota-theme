@@ -149,42 +149,53 @@ jQuery(document).ready(function ($) {
                   }
             });
       });
+
+      async function getCartItems(isCart) {
+            return new Promise((resolve, reject) => {
+                  $.ajax({
+                        url: wpurl.ajax,
+                        method: 'POST',
+                        data: {
+                              action: 'get_cart_items'
+                        },
+                        success: function (response) {
+                              const items = response.items.map(item => ({
+                                    id: item.id,
+                                    name: item.name,
+                                    price: Math.round(item.price * 100), // em centavos
+                                    quantity: item.quantity
+                              }));
+
+                              localStorage.setItem('cartItems', JSON.stringify(items));
+
+                              const params = new URLSearchParams({
+                                    items: JSON.stringify(items),
+                                    redirect_url: 'https://marmota.devhouse.com.br/obrigado',
+                                    customer_name: response.customer.name || '',
+                                    customer_email: response.customer.email || '',
+                                    customer_cellphone: response.customer.phone || ''
+                              });
+
+                              if (isCart) {
+                                    const url = `https://checkout.infinitepay.io/marcos-macedo-bfr?${params.toString()}`;
+                                    console.log(url);
+                                    // window.location.href = url;
+                                    resolve(); // nada a retornar
+                              } else {
+                                    resolve(items); // retorna os itens
+                              }
+                        },
+                        error: function (err) {
+                              console.error('Erro ao coletar dados:', err);
+                              reject(err);
+                        }
+                  });
+            });
+      }
+
       $(document).on('click', '#proceedToInfinite', function (e) {
             e.preventDefault();
-
-            $.ajax({
-                  url: wpurl.ajax,
-                  method: 'POST',
-                  data: {
-                        action: 'get_cart_items'
-                  },
-                  success: function (response) {
-                        const items = response.items.map(item => ({
-                              id: item.id,
-                              name: item.name,
-                              price: Math.round(item.price * 100), // em centavos
-                              quantity: item.quantity
-                        }));
-
-                        localStorage.setItem('cartItems', JSON.stringify(items));
-
-                        const params = new URLSearchParams({
-                              items: JSON.stringify(items),
-                              redirect_url: 'https://marmota.devhouse.com.br/obrigado',
-                              customer_name: response.customer.name || '',
-                              customer_email: response.customer.email || '',
-                              customer_cellphone: response.customer.phone || ''
-                        });
-
-                        const url = `https://checkout.infinitepay.io/marcos-macedo-bfr?${params.toString()}`;
-
-                        // Redirecionar
-                        window.location.href = url;
-                  },
-                  error: function (err) {
-                        console.error('Erro ao coletar dados:', err);
-                  }
-            });
+            getCartItems(true)
       });
 
       if (wpurl.isPage) {
@@ -200,61 +211,55 @@ jQuery(document).ready(function ($) {
             const transaction_id = new URLSearchParams(window.location.search).get('order_nsu');
             if (!transaction_id) return;
 
-            // Reconstruir cartItems baseado nos itens salvos
-            const cartItems = [];
-            for (let i = 0; i < localStorage.length; i++) {
-                  const key = localStorage.key(i);
-
-                  if (key === 'cartItems') continue; // ignora o JSON geral, só vamos por item
-
+            (async () => {
                   try {
-                        const item = JSON.parse(localStorage.getItem(key));
-                        if (item?.id && item?.quantity) {
-                              cartItems.push({ id: item.id, quantity: item.quantity });
-                        }
-                  } catch (e) {
-                        console.warn('Erro ao ler item do localStorage:', e);
-                  }
-            }
+                        const cartItems = await getCartItems(false);
+                        console.log('Itens do carrinho:', cartItems);
 
-            $.ajax({
-                  url: wpurl.ajax,
-                  method: 'POST',
-                  data: {
-                        action: 'check_or_create_order',
-                        transaction_nsu: transaction_id,
-                        cart_items: JSON.stringify(cartItems)
-                  },
-                  success: function (response) {
-                        if (!response.success) {
-                              console.error('Erro:', response.data);
-                              Swal.fire('Erro', response.data || 'Erro ao processar o pedido.', 'error');
-                              return;
-                        }
+                        $.ajax({
+                              url: wpurl.ajax,
+                              method: 'POST',
+                              data: {
+                                    action: 'check_or_create_order',
+                                    transaction_nsu: transaction_id,
+                                    cart_items: JSON.stringify(cartItems)
+                              },
+                              success: function (response) {
+                                    if (!response.success) {
+                                          console.error('Erro:', response.data);
+                                          Swal.fire('Erro', response.data || 'Erro ao processar o pedido.', 'error');
+                                          return;
+                                    }
 
-                        const order = response.data;
+                                    const order = response.data;
 
-                        $('#order-id').text(`#${order.order_id}`);
-                        $('#customer-name').text(order.customer.name);
-                        $('#customer-email').text(order.customer.email);
-                        $('#customer-phone').text(order.customer.phone);
-                        $('#order-total').html(order.total);
+                                    $('#order-id').html(`#${order.order_id}`);
+                                    $('#customer-name').html(order.customer.name);
+                                    $('#customer-email').html(order.customer.email);
+                                    $('#customer-phone').html(order.customer.phone);
+                                    $('#order-total').html(order.total);
 
-                        const $itemsList = $('#order-items');
-                        $itemsList.empty();
+                                    const $itemsList = $('#order-items');
+                                    $itemsList.empty();
 
-                        order.items.forEach(item => {
-                              const $li = $('<li>').addClass('text-gray-700').text(`${item.quantity}x ${item.name} - ${item.total}`);
-                              $itemsList.append($li);
+                                    order.items.forEach(item => {
+                                          const $li = $('<li>').addClass('text-gray-700').html(`${item.quantity}x ${item.name} - ${item.total}`);
+                                          $itemsList.append($li);
+                                    });
+
+                                    Swal.close();
+                                    localStorage.clear();
+                              },
+                              error: function (err) {
+                                    console.error('Erro na requisição AJAX:', err);
+                                    Swal.fire('Erro', 'Erro na comunicação com o servidor.', 'error');
+                              }
                         });
-
-                        Swal.close();
-                        localStorage.clear();
-                  },
-                  error: function (err) {
-                        console.error('Erro na requisição AJAX:', err);
-                        Swal.fire('Erro', 'Erro na comunicação com o servidor.', 'error');
+                  } catch (err) {
+                        console.error('Erro ao obter itens do carrinho:', err);
+                        Swal.fire('Erro', 'Não foi possível recuperar os itens do carrinho.', 'error');
                   }
-            });
+            })();
       }
+
 });

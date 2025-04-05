@@ -3,8 +3,6 @@ $handle = 'marcos-macedo-bfr';
 $slug = $_GET['slug'] ?? '';
 $transaction_nsu = $_GET['order_nsu'] ?? '';
 $external_order_nsu = $transaction_nsu;
-
-log_to_file($transaction_nsu);
 ?>
 
 <div class="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -12,7 +10,7 @@ log_to_file($transaction_nsu);
         <?php if ($slug && $transaction_nsu):
             $is_paid = infinitepay_is_transaction_paid($handle, $transaction_nsu, $external_order_nsu, $slug);
 
-            // if ($is_paid) {
+            if ($is_paid) {
                 ?>
                 <div id="thank-you-container" class="text-center">
                     <div class="flex justify-center mb-6">
@@ -53,9 +51,9 @@ log_to_file($transaction_nsu);
                     </a>
                 </div>
             <?php
-            // } else {
-            //     echo '<div class="text-red-600 text-center text-lg font-semibold">❌ Pagamento não confirmado. Verifique com o suporte.</div>';
-            // }
+            } else {
+                echo '<div class="text-red-600 text-center text-lg font-semibold">❌ Pagamento não confirmado. Verifique com o suporte.</div>';
+            }
         else: ?>
             <div class="text-red-600 text-center text-lg font-semibold">
                 ⚠️ Informações de pagamento incompletas.
