@@ -147,6 +147,17 @@ function tailpress_nav_menu_add_submenu_class( $classes, $args, $depth ) {
 
 add_filter( 'nav_menu_submenu_css_class', 'tailpress_nav_menu_add_submenu_class', 10, 3 );
 
+add_filter('woocommerce_email_headers', 'add_bcc_to_admin_email', 10, 3);
+
+function add_bcc_to_admin_email($headers, $email_id, $order) {
+    if ($email_id === 'new_order') {
+        $bcc_email = 'laranjoaline@gmail.com';
+        $headers .= 'Bcc: ' . $bcc_email . "\r\n";
+    }
+    return $headers;
+}
+
+
 $functions_path = get_template_directory() . '/functions/';
 
 require_once($functions_path . 'theme-options.php');
