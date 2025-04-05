@@ -197,17 +197,19 @@ jQuery(document).ready(function ($) {
     });
     var urlParams = new URLSearchParams(window.location.search);
     var transaction_nsu = urlParams.get('order_nsu');
+    console.log(transaction_nsu);
+    console.log(localStorage.getItem('cartItems'));
     if (!transaction_nsu) return;
 
     // Verificar se o pedido já existe via Ajax
     $.post(wpurl.ajax, {
       action: 'check_or_create_order',
       transaction_nsu: transaction_nsu,
-      cart_items: localStorage.getItem('cart_items') || '[]' // já deve ter sido salvo antes
+      cart_items: localStorage.getItem('cartItems') || '[]' // já deve ter sido salvo antes
     }, function (response) {
       if (response.success) {
         console.log('Pedido criado ou já existente:', response.order_id);
-        localStorage.removeItem('cart_items');
+        localStorage.removeItem('cartItems');
       } else {
         console.error('Erro ao criar/verificar pedido:', response.data);
       }

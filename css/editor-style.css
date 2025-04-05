@@ -907,9 +907,6 @@
   .rounded-sm {
     border-radius: var(--radius-sm);
   }
-  .rounded-xl {
-    border-radius: var(--radius-xl);
-  }
   .rounded-xs {
     border-radius: var(--radius-xs);
   }
