@@ -195,30 +195,15 @@ jQuery(document).ready(function ($) {
         Swal.showLoading();
       }
     });
-    var urlParams = new URLSearchParams(window.location.search);
-    var transaction_nsu = urlParams.get('order_nsu');
-    console.log(transaction_nsu);
-    console.log(localStorage.getItem('cartItems'));
-    if (!transaction_nsu) return;
-
-    // Verificar se o pedido já existe via Ajax
-    $.post(wpurl.ajax, {
-      action: 'check_or_create_order',
-      transaction_nsu: transaction_nsu,
-      cart_items: localStorage.getItem('cartItems') || '[]' // já deve ter sido salvo antes
-    }, function (response) {
-      if (response.success) {
-        console.log('Pedido criado ou já existente:', response.order_id);
-        localStorage.removeItem('cartItems');
-      } else {
-        console.error('Erro ao criar/verificar pedido:', response.data);
-      }
-    });
     var transaction_id = new URLSearchParams(window.location.search).get('order_nsu');
     if (!transaction_id) return;
+
+    // Reconstruir cartItems baseado nos itens salvos
     var cartItems = [];
     for (var i = 0; i < localStorage.length; i++) {
       var key = localStorage.key(i);
+      if (key === 'cartItems') continue; // ignora o JSON geral, só vamos por item
+
       try {
         var item = JSON.parse(localStorage.getItem(key));
         if (item !== null && item !== void 0 && item.id && item !== null && item !== void 0 && item.quantity) {
@@ -242,6 +227,7 @@ jQuery(document).ready(function ($) {
       success: function success(response) {
         if (!response.success) {
           console.error('Erro:', response.data);
+          Swal.fire('Erro', response.data || 'Erro ao processar o pedido.', 'error');
           return;
         }
         var order = response.data;
@@ -261,6 +247,7 @@ jQuery(document).ready(function ($) {
       },
       error: function error(err) {
         console.error('Erro na requisição AJAX:', err);
+        Swal.fire('Erro', 'Erro na comunicação com o servidor.', 'error');
       }
     });
   }
