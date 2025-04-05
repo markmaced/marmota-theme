@@ -178,8 +178,7 @@ jQuery(document).ready(function ($) {
 
                               if (isCart) {
                                     const url = `https://checkout.infinitepay.io/marcos-macedo-bfr?${params.toString()}`;
-                                    console.log(url);
-                                    // window.location.href = url;
+                                    window.location.href = url;
                                     resolve(); // nada a retornar
                               } else {
                                     resolve(items); // retorna os itens
@@ -214,7 +213,7 @@ jQuery(document).ready(function ($) {
             (async () => {
                   try {
                         const cartItems = await getCartItems(false);
-                        console.log('Itens do carrinho:', cartItems);
+                        
 
                         $.ajax({
                               url: wpurl.ajax,

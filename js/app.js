@@ -189,8 +189,7 @@ jQuery(document).ready(function ($) {
                   });
                   if (isCart) {
                     var url = "https://checkout.infinitepay.io/marcos-macedo-bfr?".concat(params.toString());
-                    console.log(url);
-                    // window.location.href = url;
+                    window.location.href = url;
                     resolve(); // nada a retornar
                   } else {
                     resolve(items); // retorna os itens
@@ -235,7 +234,6 @@ jQuery(document).ready(function ($) {
             return getCartItems(false);
           case 3:
             cartItems = _context.sent;
-            console.log('Itens do carrinho:', cartItems);
             $.ajax({
               url: wpurl.ajax,
               method: 'POST',
@@ -270,18 +268,18 @@ jQuery(document).ready(function ($) {
                 Swal.fire('Erro', 'Erro na comunicação com o servidor.', 'error');
               }
             });
-            _context.next = 12;
+            _context.next = 11;
             break;
-          case 8:
-            _context.prev = 8;
+          case 7:
+            _context.prev = 7;
             _context.t0 = _context["catch"](0);
             console.error('Erro ao obter itens do carrinho:', _context.t0);
             Swal.fire('Erro', 'Não foi possível recuperar os itens do carrinho.', 'error');
-          case 12:
+          case 11:
           case "end":
             return _context.stop();
         }
-      }, _callee, null, [[0, 8]]);
+      }, _callee, null, [[0, 7]]);
     }))();
   }
 });
