@@ -4,13 +4,18 @@ $user_id = get_current_user_id();
 $nome = is_user_logged_in() ? $user->display_name : '';
 $email = is_user_logged_in() ? $user->user_email : '';
 $telefone = is_user_logged_in() ? get_field('telefone', 'user_' . $user_id) : '';
+
+$args = array(
+    'post_type' => 'templates-marmota',
+    'posts_per_page' => -1
+)
 ?>
 <section class="text-center md:py-10 py-40 md:px-0 px-5 bg-gray-200 md:min-h-screen h-auto flex items-center"
     data-aos="fade-down">
     <div class="w-full max-w-4xl mx-auto">
-        <h1 class="md:text-4xl text-2xl font-normal text-custom-gray font-omnes">Cê já comprou algo pela internet.</h1>
-        <h2 class="md:text-4xl text-2xl font-normal text-black font-omnes mb-2">Agora é a <b>sua vez</b> de vender.</h2>
-        <p class="text-base font-omnes text-black font-normal">toda oferta precisa <b>de uma página clara,</b>
+        <h1 class="md:text-5xl text-2xl font-normal text-custom-gray font-omnes">Cê já comprou algo pela internet.</h1>
+        <h2 class="md:text-5xl text-2xl font-normal text-black font-omnes mb-2">Agora é a <b>sua vez</b> de vender.</h2>
+        <p class="text-lg font-omnes text-black font-normal">toda oferta precisa <b>de uma página clara,</b>
             persuasiva
             e focada na conversão.</p>
         <button type="button"
@@ -36,7 +41,6 @@ $telefone = is_user_logged_in() ? get_field('telefone', 'user_' . $user_id) : ''
         </div>
     </div>
 </section>
-
 <section class="w-full md:py-20 py-10">
     <div class="max-w-4xl mx-auto">
         <div class="w-full md:flex md:gap-10 mb-16 justify-center md:px-0 px-5" data-aos="fade-right">
@@ -44,7 +48,7 @@ $telefone = is_user_logged_in() ? get_field('telefone', 'user_' . $user_id) : ''
                 <h2 class="md:text-5xl text-3xl font-normal font-omnes md:text-right md:mb-0 mb-5">e por que <br><b>eu
                         deveria <br>ter uma?</b></h2>
             </div>
-            <div class="md:w-[70%] w-full">
+            <div class="md:w-[70%] w-full flex flex-col justify-end">
                 <p class="mb-5 font-omnes md:text-2xl text-xl">cê já clicou num anúncio <br>e desistiu no meio porque a
                     <br>página
                     era confusa?
@@ -53,70 +57,63 @@ $telefone = is_user_logged_in() ? get_field('telefone', 'user_' . $user_id) : ''
             </div>
         </div>
         <div class="w-full flex flex-col items-center justify-center px-5 md:px-0">
-            <ul class="mt-4 space-y-2">
-                <li class="flex items-center font-omnes font-bold gap-7 mb-5" data-aos="fade-up">
-                    <span class="mr-2">
-                        <img src="<?php echo get_theme_image('check.png') ?>" class="w-10">
-                    </span>
-                    <div class="w-full">
-                        100% otimizada
-                        <p class="font-normal font-omnes">Sua página perfeita em qualquer dispositivo. Do celular ao
-                            desktop, sem
-                            erro.</p>
-                    </div>
-                </li>
-                <li class="flex items-center font-omnes font-bold gap-7 mb-5" data-aos="fade-up">
-                    <span class="mr-2">
-                        <img src="<?php echo get_theme_image('check.png') ?>" class="w-10">
-                    </span>
-                    <div class="w-full">
-                        Segurança garantida
-                        <p class="font-normal font-omnes">Certificado SSL incluso, garantindo uma navegação segura e
-                            profissional.
-                        </p>
-                    </div>
-                </li>
-                <li class="flex items-center font-omnes font-bold gap-7 mb-5" data-aos="fade-up">
-                    <span class="mr-2">
-                        <img src="<?php echo get_theme_image('check.png') ?>" class="w-10">
-                    </span>
-                    <div class="w-full">
-                        Pronta para rodar anúncios
-                        <p class="font-normal font-omnes">Otimizada para Google Ads, Facebook Ads e qualquer estratégia
-                            de tráfego
-                            pago.</p>
-                    </div>
-                </li>
-                <li class="flex items-center font-omnes font-bold gap-7 mb-5" data-aos="fade-up">
-                    <span class="mr-2">
-                        <img src="<?php echo get_theme_image('check.png') ?>" class="w-10">
-                    </span>
-                    <div class="w-full">
-                        Configuração e carregamento otimizados
-                        <p class="font-normal font-omnes md:w-2/3">Integração com ferramentas como WhatsApp, CRM e
-                            automação de e-mails, se necessário; e nada de páginas lentas que fazem seu cliente
-                            desistir!</p>
-                    </div>
-                </li>
-            </ul>
+            <div class="flex justify-center w-full">
+                <ul class="mt-4 space-y-6 flex flex-col items-start max-w-3xl w-full px-4 md:ml-[150px]">
+                    <li class="flex items-start font-omnes font-bold gap-5 mb-5" data-aos="fade-up">
+                        <span class="shrink-0">
+                            <img src="<?php echo get_theme_image('check.png') ?>" class="w-10">
+                        </span>
+                        <div>
+                            100% otimizada
+                            <p class="font-normal font-omnes">Sua página perfeita em qualquer dispositivo. Do celular ao desktop, sem erro.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start font-omnes font-bold gap-5 mb-5" data-aos="fade-up">
+                        <span class="shrink-0">
+                            <img src="<?php echo get_theme_image('check.png') ?>" class="w-10">
+                        </span>
+                        <div>
+                            Segurança garantida
+                            <p class="font-normal font-omnes">Certificado SSL incluso, garantindo uma navegação segura e profissional.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start font-omnes font-bold gap-5 mb-5" data-aos="fade-up">
+                        <span class="shrink-0">
+                            <img src="<?php echo get_theme_image('check.png') ?>" class="w-10">
+                        </span>
+                        <div>
+                            Pronta para rodar anúncios
+                            <p class="font-normal font-omnes">Otimizada para Google Ads, Facebook Ads e qualquer estratégia de tráfego pago.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start font-omnes font-bold gap-5 mb-5" data-aos="fade-up">
+                        <span class="shrink-0">
+                            <img src="<?php echo get_theme_image('check.png') ?>" class="w-10">
+                        </span>
+                        <div>
+                            Configuração e carregamento otimizados
+                            <p class="font-normal font-omnes">Integração com ferramentas como WhatsApp, CRM e automação de e-mails, se necessário; e nada de páginas lentas que fazem seu cliente desistir!</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
-
 <section class="w-full md:py-20 py-10">
     <div class="max-w-4xl mx-auto">
-        <div class="w-full flex gap-10 md:mb-16 mb-10 justify-center md:px-0 px-5" data-aos="fade-right">
-            <div class="w-full">
-                <h2 class="md:text-5xl text-3xl font-normal font-omnes text-left">chegou até aqui, <br>mas ainda não
-                    sabe se <br>é
-                    procê? <b>Prestenção:</b></h2>
-            </div>
-        </div>
         <div class="w-full md:flex md:gap-10 md:items-center md:justify-center mb-10">
-            <div class="md:w-1/2 w-full md:hidden block mb-10" data-aos="fade-left">
+            <div class="md:w-1/3 w-full md:hidden block mb-10" data-aos="fade-left">
                 <img src="<?php echo get_theme_image('retangulo2.png') ?>" class="w-full h-[320px]">
             </div>
-            <div class="md:w-1/2 w-full md:px-0 px-5">
+            <div class="md:w-2/3 w-full md:px-0 px-5">
+                <div class="w-full flex gap-10 md:mb-16 mb-10 justify-center md:px-0 px-5" data-aos="fade-right">
+                    <div class="w-full">
+                        <h2 class="md:text-4xl text-3xl font-normal font-omnes text-left">chegou até aqui, <br>mas ainda não
+                            sabe se <br>é
+                            procê? <b>Prestenção:</b></h2>
+                    </div>
+                </div>
                 <ul class="mt-4 space-y-2">
                     <li class="flex items-center font-omnes font-bold gap-7 mb-5" data-aos="fade-up">
                         <span class="mr-2">
@@ -148,8 +145,8 @@ $telefone = is_user_logged_in() ? get_field('telefone', 'user_' . $user_id) : ''
                     </li>
                 </ul>
             </div>
-            <div class="md:w-1/2 w-full md:block hidden" data-aos="fade-left">
-                <img src="<?php echo get_theme_image('retangulo2.png') ?>" class="w-full h-[320px]">
+            <div class="md:w-1/3 w-full md:block hidden" data-aos="fade-left">
+                <img src="<?php echo get_theme_image('retangulo2.png') ?>" class="w-full h-[320px] md:h-full">
             </div>
         </div>
         <div class="w-full flex justify-center md:px-0 px-5">
@@ -160,7 +157,6 @@ $telefone = is_user_logged_in() ? get_field('telefone', 'user_' . $user_id) : ''
         </div>
     </div>
 </section>
-
 <section class="w-full md:py-20 py-10">
     <div class="max-w-4xl mx-auto flex flex-col items-center text-center md:px-0 px-5">
         <h2 class="md:text-5xl text-3xl font-normal font-omnes text-center mb-8 leading-tight" data-aos="fade-down">
@@ -224,47 +220,77 @@ $telefone = is_user_logged_in() ? get_field('telefone', 'user_' . $user_id) : ''
         </ul>
     </div>
 </section>
-
 <section class="w-full md:py-20 py-10">
     <div class="max-w-6xl mx-auto">
         <h2 class="text-5xl font-normal font-omnes text-center mb-8 leading-tight" data-aos="fade-down">
-            Conheça nossos modelos</b>
+            Conheça nossos modelos
         </h2>
-        <div class="w-full md:flex gap-3 md:px-0 px-5">
-            <div class="md:w-1/5 w-full max-w-full max-h-full">
-                <a href="https://demos.marmotastudiocriativo.com.br/template-1" target="_blank">
-                    <img src="<?php echo get_theme_image('template-1.png') ?>"
-                        class="w-full transition-all duration-500 hover:scale-105">
-                </a>
+
+        <?php
+        // Recupera as categorias do post tipo "templates"
+        $categories = get_terms(array(
+            'taxonomy' => 'template_category_marmota',
+            'orderby'  => 'name',
+            'order'    => 'ASC',
+            'hide_empty' => false,
+        ));
+
+        if ($categories) : ?>
+            <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-styled-tab" data-tabs-toggle="#default-styled-tab-content" data-tabs-active-classes="text-purple-600 hover:text-purple-600 dark:text-purple-500 dark:hover:text-purple-500 border-purple-600 dark:border-purple-500" data-tabs-inactive-classes="dark:border-transparent text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300" role="tablist">
+                    <?php foreach ($categories as $category) : ?>
+                        <li class="me-2" role="presentation">
+                            <button class="inline-block p-4 border-b-2 rounded-t-lg cursor-pointer" id="category-<?php echo $category->term_id; ?>-tab" data-tabs-target="#category-<?php echo $category->term_id; ?>" type="button" role="tab" aria-controls="category-<?php echo $category->term_id; ?>" aria-selected="false"><?php echo $category->name; ?></button>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
-            <div class="md:w-1/5 w-full max-w-full max-h-full">
-                <a href="https://demos.marmotastudiocriativo.com.br/template-2" target="_blank">
-                    <img src="<?php echo get_theme_image('template-2.png') ?>"
-                        class="w-full transition-all duration-500 hover:scale-105">
-                </a>
+
+            <div id="default-styled-tab-content">
+                <?php foreach ($categories as $category) : ?>
+                    <div class="hidden" id="category-<?php echo $category->term_id; ?>" role="tabpanel" aria-labelledby="category-<?php echo $category->term_id; ?>-tab">
+                        <?php
+                        // Recupera os posts associados a cada categoria
+                        $args = array(
+                            'post_type'      => 'templates_marmota',
+                            'posts_per_page' => -1,
+                            'tax_query'      => array(
+                                array(
+                                    'taxonomy' => 'template_category_marmota',
+                                    'field'    => 'id',
+                                    'terms'    => $category->term_id,
+                                    'operator' => 'IN',
+                                ),
+                            ),
+                        );
+
+                        $query = new WP_Query($args);
+                        ?>
+
+                        <div class="flex gap-4">
+                            <?php while ($query->have_posts()) : $query->the_post();
+                                if (has_post_thumbnail()) :
+                            ?>
+                                    <div class="md:w-1/5 w-full">
+                                        <a href="<?php echo get_field('url' , get_the_ID()) ?>" target="_blank">
+                                            <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>"
+                                                class="w-full transition-all duration-500 hover:scale-105">
+                                        </a>
+                                    </div>
+                            <?php
+                                endif;
+                            endwhile; ?>
+                        </div>
+                        <?php
+
+                        wp_reset_postdata();
+                        ?>
+                    </div>
+                <?php endforeach; ?>
             </div>
-            <div class="md:w-1/5 w-full max-w-full max-h-full">
-                <a href="https://demos.marmotastudiocriativo.com.br/template-3" target="_blank">
-                    <img src="<?php echo get_theme_image('template-3.png') ?>"
-                        class="w-full transition-all duration-500 hover:scale-105">
-                </a>
-            </div>
-            <div class="md:w-1/5 w-full max-w-full max-h-full">
-                <a href="https://demos.marmotastudiocriativo.com.br/template-4" target="_blank">
-                    <img src="<?php echo get_theme_image('template-4.png') ?>"
-                        class="w-full transition-all duration-500 hover:scale-105">
-                </a>
-            </div>
-            <div class="md:w-1/5 w-full max-w-full max-h-full">
-                <a href="https://demos.marmotastudiocriativo.com.br/template-5" target="_blank">
-                    <img src="<?php echo get_theme_image('template-5.png') ?>"
-                        class="w-full transition-all duration-500 hover:scale-105">
-                </a>
-            </div>
-        </div>
+        <?php endif; ?>
     </div>
 </section>
-
 <section class="max-w-5xl mx-auto md:py-20 py-10" data-aos="zoom-in" id="planos">
     <h2 class="text-5xl font-normal font-omnes text-center mb-14 leading-tight" data-aos="fade-down">
         Escolha o seu:</h2>
@@ -415,9 +441,12 @@ $telefone = is_user_logged_in() ? get_field('telefone', 'user_' . $user_id) : ''
                 <div class="w-full flex justify-center">
                     <?php if (is_user_logged_in()): ?>
                         <!-- <a
-                            href="https://checkout.infinitepay.io/aline_laranjo?items=[{&quot;name&quot;:&quot;Vapt+Vupt&quot;,&quot;price&quot;:100000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/obrigado&customer_name=<?php #echo $nome ?>&customer_email=<?php #echo $email ?>&customer_cellphone=<?php #echo $telefone ?>" target="_blank">Escolher
+                            href="https://checkout.infinitepay.io/aline_laranjo?items=[{&quot;name&quot;:&quot;Vapt+Vupt&quot;,&quot;price&quot;:100000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/obrigado&customer_name=<?php #echo $nome 
+                                                                                                                                                                                                                                                        ?>&customer_email=<?php #echo $email 
+                                                                                                                                                                                                                                                                            ?>&customer_cellphone=<?php #echo $telefone 
+                                                                                                                                                                                                                                                                                                    ?>" target="_blank">Escolher
                             este modelo</a> -->
-                            <a href="<?php echo wc_get_cart_url(); ?>?add-to-cart=65" class="w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5">Escolher este modelo</a>
+                        <a href="<?php echo wc_get_cart_url(); ?>?add-to-cart=65" class="w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5">Escolher este modelo</a>
                     <?php else: ?>
                         <button type="button"
                             class="modalBtn w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5">Escolher
@@ -576,9 +605,12 @@ $telefone = is_user_logged_in() ? get_field('telefone', 'user_' . $user_id) : ''
                 <div class="w-full flex justify-center">
                     <?php if (is_user_logged_in()): ?>
                         <!-- <a
-                            href="https://checkout.infinitepay.io/aline_laranjo?items=[{&quot;name&quot;:&quot;Pitaco&quot;,&quot;price&quot;:180000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/obrigado&customer_name=<?php #echo $nome ?>&customer_email=<?php #echo $email ?>&customer_cellphone=<?php #echo $telefone ?>" target="_blank">Escolher
+                            href="https://checkout.infinitepay.io/aline_laranjo?items=[{&quot;name&quot;:&quot;Pitaco&quot;,&quot;price&quot;:180000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/obrigado&customer_name=<?php #echo $nome 
+                                                                                                                                                                                                                                                    ?>&customer_email=<?php #echo $email 
+                                                                                                                                                                                                                                                                        ?>&customer_cellphone=<?php #echo $telefone 
+                                                                                                                                                                                                                                                                                                ?>" target="_blank">Escolher
                             este modelo</a> -->
-                            <a href="<?php echo wc_get_cart_url(); ?>?add-to-cart=69" class="w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5">Escolher este modelo</a>
+                        <a href="<?php echo wc_get_cart_url(); ?>?add-to-cart=69" class="w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5">Escolher este modelo</a>
                     <?php else: ?>
                         <button type="button"
                             class="modalBtn w-2/3 mx-auto bg-black hover:scale-105 duration-500 transition-all text-white font-medium rounded-full text-sm px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5">Escolher

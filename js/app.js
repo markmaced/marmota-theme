@@ -282,6 +282,18 @@ jQuery(document).ready(function ($) {
       }, _callee, null, [[0, 7]]);
     }))();
   }
+  var firstTabId = $('[data-tabs-target]').first().data('tabs-target');
+  $(firstTabId).removeClass('hidden').addClass('flex');
+  $('[data-tabs-target]').on('click', function () {
+    var tabId = $(this).data('tabs-target');
+    var tabContent = $(tabId);
+
+    // Esconde todas as tabs
+    $('.hidden').addClass('hidden');
+
+    // Mostra a tab clicada
+    tabContent.removeClass('hidden').addClass('flex');
+  });
 });
 
 /***/ }),
