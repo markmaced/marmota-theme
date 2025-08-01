@@ -43,3 +43,19 @@
 @utility radius-t-full{
     border-radius: 12px 12px 0px 0;
 }
+
+@utility bg-light-orange{
+    background-color: #f9e8e1;
+}
+@utility bg-marmota-orange{
+    background-color: #fe3b01;
+}
+@utility bg-medium-orange{
+    background-color: #be5126;
+}
+@utility text-marmota-orange{
+    color: #fe3b01;
+}
+@utility border-marmota-orange{
+    border-color: #fe3b01;
+}

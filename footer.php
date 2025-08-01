@@ -10,7 +10,7 @@
 	<?php do_action('tailpress_footer'); ?>
 	<div class="max-w-4xl mx-auto flex justify-center flex-col items-center px-5 md:px-0">
 		<h2 class="text-base text-white md:text-left text-center mb-3 md:mb-0">Termos de Uso | Políticas de Privacidade | Políticas de Cookies</h2>
-		<p class="text-base text-white text-center">Marmota © - todos os direitos reservados.</p>
+		<p class="text-base text-white text-center"><span class="text-marmota-orange">Marmota Studio Criativo ©</span> - todos os direitos reservados.</p>
 	</div>
 	<div id="customModal"
 		class="fixed inset-0 flex items-center justify-center h-screen w-full z-50 black-opacity-0.5 hidden md:px-0 px-5">

@@ -116,3 +116,27 @@ a.button.product_type_simple.add_to_cart_button.ajax_add_to_cart {
     color: #fff;
     font-size: 12px;
 }
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes infinite-scroll-reverse {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 120s linear infinite;
+}
+
+.animate-infinite-scroll-reverse {
+  animation: infinite-scroll-reverse 120s linear infinite;
+}
