@@ -303,7 +303,7 @@ $args = array(
         </ul>
     </div>
 </section>
-<section class="w-full md:py-24 py-10 bg-[#26282c] md:px-0 px-5 pb-96">
+<section class="w-full py-10 bg-[#26282c] px-5 md:px-0 md:py-24 md:pb-24">
     <div class="max-w-5xl mx-auto flex md:flex-row flex-col-reverse md:gap-5">
         <div class="md:w-2/5 md:mb-0 mb-5 relative" data-aos="fade-left">
             <img src="<?php echo get_theme_image('template.png') ?>" class="w-4/5 md:right-0 h-[540px] absolute right-10">
@@ -439,10 +439,13 @@ $args = array(
             rápido e sem enrolação.<br>
             seu site pronto em <span class="text-black font-semibold">5 passos.</span>
         </h2>
+        <div class="bg-red-500 md:bg-green-500 text-white text-center p-4">
+    Teste md: - Vermelho = mobile | Verde = md ou mais
+</div>
         <ul class="mt-4 space-y-2 flex flex-col items-center w-full">
             <li class="flex md:items-center items-start md:flex-row flex-col font-omnes font-bold gap-4 md:w-2/3 mx-auto bg-light-orange border-black border md:px-10 px-3 pb-2 pt-1 rounded-xl w-4/5"
                 data-aos="fade-up">
-                <div class="md:w-[10%] w-full">
+                <div class="md:w-[10%]">
                     <div class="w-full text-left ml-0.5">passo</div>
                     <span
                         class="w-12 h-8 flex items-center justify-center text-xl bg-marmota-orange text-white rounded-md">01</span>
@@ -454,7 +457,7 @@ $args = array(
             </li>
             <li class="flex md:items-center items-start md:flex-row flex-col font-omnes font-bold gap-4 md:w-2/3 mx-auto bg-light-orange border-black border md:px-10 px-3 pb-2 pt-1 rounded-xl w-4/5"
                 data-aos="fade-up">
-                <div class="md:w-[10%] w-full">
+                <div class="md:w-[10%]">
                     <div class="w-full text-left ml-0.5">passo</div>
                     <span
                         class="w-12 h-8 flex items-center justify-center text-xl bg-marmota-orange text-white rounded-md">02</span>
@@ -467,7 +470,7 @@ $args = array(
             </li>
             <li class="flex md:items-center items-start md:flex-row flex-col font-omnes font-bold gap-4 md:w-2/3 mx-auto bg-light-orange border-black border md:px-10 px-3 pb-2 pt-1 rounded-xl w-4/5"
                 data-aos="fade-up">
-                <div class="md:w-[10%] w-full">
+                <div class="md:w-[10%]">
                     <div class="w-full text-left ml-0.5">passo</div>
                     <span
                         class="w-12 h-8 flex items-center justify-center text-xl bg-marmota-orange text-white rounded-md">03</span>
@@ -479,7 +482,7 @@ $args = array(
             </li>
             <li class="flex md:items-center items-start md:flex-row flex-col font-omnes font-bold gap-4 md:w-2/3 mx-auto bg-light-orange border-black border md:px-10 px-3 pb-2 pt-1 rounded-xl w-4/5"
                 data-aos="fade-up">
-                <div class="md:w-[10%] w-full">
+                <div class="md:w-[10%]">
                     <div class="w-full text-left ml-0.5">passo</div>
                     <span
                         class="w-12 h-8 flex items-center justify-center text-xl bg-marmota-orange text-white rounded-md">04</span>
@@ -491,7 +494,7 @@ $args = array(
             </li>
             <li class="flex md:items-center items-start md:flex-row flex-col font-omnes font-bold gap-4 md:w-2/3 mx-auto bg-light-orange border-black border md:px-10 px-3 pb-2 pt-1 rounded-xl w-4/5"
                 data-aos="fade-up">
-                <div class="md:w-[10%] w-full">
+                <div class="md:w-[10%]">
                     <div class="w-full text-left ml-0.5">passo</div>
                     <span
                         class="w-12 h-8 flex items-center justify-center text-xl bg-marmota-orange text-white rounded-md">05</span>
