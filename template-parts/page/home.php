@@ -439,9 +439,6 @@ $args = array(
             rápido e sem enrolação.<br>
             seu site pronto em <span class="text-black font-semibold">5 passos.</span>
         </h2>
-        <div class="bg-red-500 md:bg-green-500 text-white text-center p-4">
-    Teste md: - Vermelho = mobile | Verde = md ou mais
-</div>
         <ul class="mt-4 space-y-2 flex flex-col items-center w-full">
             <li class="flex md:items-center items-start md:flex-row flex-col font-omnes font-bold gap-4 md:w-2/3 mx-auto bg-light-orange border-black border md:px-10 px-3 pb-2 pt-1 rounded-xl w-4/5"
                 data-aos="fade-up">
