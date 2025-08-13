@@ -140,3 +140,9 @@ a.button.product_type_simple.add_to_cart_button.ajax_add_to_cart {
 .animate-infinite-scroll-reverse {
   animation: infinite-scroll-reverse 120s linear infinite;
 }
+
+@media screen and (max-width:968px){
+    #about{
+        padding-bottom: 360px;
+    }
+}

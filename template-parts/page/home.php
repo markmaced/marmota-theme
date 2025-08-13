@@ -303,7 +303,7 @@ $args = array(
         </ul>
     </div>
 </section>
-<section class="w-full py-10 bg-[#26282c] px-5 md:px-0 md:py-24 md:pb-24">
+<section id="about" class="w-full py-10 bg-[#26282c] px-5 md:px-0 md:py-24 md:pb-24">
     <div class="max-w-5xl mx-auto flex md:flex-row flex-col-reverse md:gap-5">
         <div class="md:w-2/5 md:mb-0 mb-5 relative" data-aos="fade-left">
             <img src="<?php echo get_theme_image('template.png') ?>" class="w-4/5 md:right-0 h-[540px] absolute right-10">
