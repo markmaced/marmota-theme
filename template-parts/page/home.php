@@ -13,15 +13,18 @@ $args = array(
 <section class="text-center md:py-10 py-40 md:px-0 px-5 bg-light-orange md:min-h-screen h-auto flex items-start"
     data-aos="fade-down">
     <div class="w-full max-w-5xl mx-auto">
-        <img src="<?php echo get_theme_image('logo-marmotinha-temp.png')?>" class="w-20 mx-auto md:mb-20 md:mt-20 mb-10">
-        <h1 class="md:text-4xl text-2xl font-medium text-black font-omnes">Cê já comprou algo pela internet.</h1>
-        <h2 class="md:text-4xl text-2xl font-normal text-black font-omnes mb-2">Agora é a sua vez de vender!</h2>
-        <p class="text-base font-omnes text-black font-normal">toda oferta precisa de <b><span
+        <img src="<?php echo get_theme_image('logo-marmotinha-temp.png') ?>"
+            class="w-20 mx-auto md:mb-20 md:mt-20 mb-10">
+        <h1 class="md:text-5xl text-2xl font-medium text-black font-omnes font-semibold">Cê já comprou algo pela
+            internet.</h1>
+        <h2 class="md:text-5xl text-2xl font-normal text-black font-omnes font-semibold mb-2">Agora é a sua vez de
+            vender!</h2>
+        <p class="text-lg font-omnes text-black font-normal">toda oferta precisa de <b><span
                     class="text-marmota-orange">uma página clara,<span></span></b>
             persuasiva
             e focada na conversão.</p>
         <button type="button"
-            class="mt-4 px-6 py-2 bg-marmota-orange border-4 border-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer md:text-base text-sm"
+            class="mt-4 px-6 py-2 bg-marmota-orange border-4 border-black text-white rounded-full uppercase hover:scale-105 duration-500 transition-all cursor-pointer md:text-lg text-sm"
             act="#planos">QUERO
             UMA PÁGINA QUE VENDE!</button>
     </div>
@@ -306,7 +309,8 @@ $args = array(
 <section id="about" class="w-full py-10 bg-[#26282c] px-5 md:px-0 md:py-24 md:pb-24">
     <div class="max-w-5xl mx-auto flex md:flex-row flex-col-reverse md:gap-5">
         <div class="md:w-2/5 md:mb-0 mb-5 relative" data-aos="fade-left">
-            <img src="<?php echo get_theme_image('template.png') ?>" class="w-4/5 md:right-0 h-[540px] absolute right-10">
+            <img src="<?php echo get_theme_image('template.png') ?>"
+                class="w-4/5 md:right-0 h-[540px] absolute right-10">
         </div>
         <div class="md:w-3/5 md:pl-10 md:pr-32 md:pb-0 pb-10" data-aos="fade-right">
             <h2 class="text-4xl font-omnes font-normal mb-5 text-white">O que é uma<br> <b>Landing Page</b> e por<br>
@@ -930,7 +934,8 @@ $args = array(
                 <div class="w-full pt-6 bg-light-orange border border-gray-200 rounded-4xl shadow-md relative">
                     <div class="text-black border-b mx-5">
                         <h2 class="text-3xl font-bold text-marmota-orange font-omnes text-center mb-1">Sob medida</h2>
-                        <p class="text-sm font-light text-[#160603] font-omnes mb-5 text-center">Para quem quer uma página com a sua cara e aquele tchan.</p>
+                        <p class="text-sm font-light text-[#160603] font-omnes mb-5 text-center">Para quem quer uma
+                            página com a sua cara e aquele tchan.</p>
                     </div>
                     <ul role="list" class="space-y-3 my-6 px-5">
                         <li class="flex items-center">
@@ -1106,8 +1111,8 @@ $args = array(
                     <details class="group relative">
                         <summary
                             class="flex justify-left px-5 items-center font-medium cursor-pointer list-none py-3 bg-light-orange border border-black  shadow-accordion rounded-full">
-                            <span class="text-black uppercase m-0 text-sm md:text-xl font-semibold">Como contratar meus
-                                serviços</span>
+                            <span class="text-black uppercase m-0 text-sm md:text-xl font-semibold">Qual é a diferença
+                                entre site e landing page?</span>
                             <span class="transition group-open:rotate-180 absolute right-5">
                                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -1116,14 +1121,14 @@ $args = array(
                                 </svg>
                             </span>
                         </summary>
-                        <div class="group-open:animate-fadeIn mx-auto border border-solid  border-t-0 p-6 text-black bg-light-orange md:w-[95%] w-[90%]">
-                            <p class="mb-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                                has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        <div
+                            class="group-open:animate-fadeIn mx-auto border border-solid  border-t-0 p-6 text-black bg-light-orange md:w-[95%] w-[90%]">
+                            <p class="mb-8">Site é tipo um escritório virtual. Landing page é seu vendedor.
+                                O site pode ser composto de uma única página ou um conjunto de páginas usado para
+                                apresentar muitas informações (por exemplo: sobre a empresa, serviços ou produtos
+                                oferecidos, clientes, localização, contato).
+                                Já a landing page, é uma página criada estrategicamente com a única função de conversão
+                                (seja ela compra, cadastro, entrar em contato, etc)</p>
                         </div>
                     </details>
                 </div>
@@ -1131,8 +1136,7 @@ $args = array(
                     <details class="group relative">
                         <summary
                             class="flex justify-left px-5 items-center font-medium cursor-pointer list-none py-3 bg-light-orange border border-black  shadow-accordion rounded-full">
-                            <span class="text-black uppercase m-0 text-sm md:text-xl font-semibold">Como contratar meus
-                                serviços</span>
+                            <span class="text-black uppercase m-0 text-sm md:text-xl font-semibold">Quais funcionalidades podem ser incluídas no site?</span>
                             <span class="transition group-open:rotate-180 absolute right-5">
                                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -1141,14 +1145,9 @@ $args = array(
                                 </svg>
                             </span>
                         </summary>
-                        <div class="group-open:animate-fadeIn mx-auto border border-solid  border-t-0 p-6 text-black bg-light-orange md:w-[95%] w-[90%]">
-                            <p class="mb-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                                has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        <div
+                            class="group-open:animate-fadeIn mx-auto border border-solid  border-t-0 p-6 text-black bg-light-orange md:w-[95%] w-[90%]">
+                            <p class="mb-8">Botão do WhatsApp, Formulários, Integração com E-mail Marketing, Pixel do Facebook e Google Analytics.</p>
                         </div>
                     </details>
                 </div>
@@ -1156,8 +1155,7 @@ $args = array(
                     <details class="group relative">
                         <summary
                             class="flex justify-left px-5 items-center font-medium cursor-pointer list-none py-3 bg-light-orange border border-black  shadow-accordion rounded-full">
-                            <span class="text-black uppercase m-0 text-sm md:text-xl font-semibold">Como contratar meus
-                                serviços</span>
+                            <span class="text-black uppercase m-0 text-sm md:text-xl font-semibold">Meu site vai funcionar no smartphone e no computador?s</span>
                             <span class="transition group-open:rotate-180 absolute right-5">
                                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -1166,14 +1164,9 @@ $args = array(
                                 </svg>
                             </span>
                         </summary>
-                        <div class="group-open:animate-fadeIn mx-auto border border-solid  border-t-0 p-6 text-black bg-light-orange md:w-[95%] w-[90%]">
-                            <p class="mb-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                                has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        <div
+                            class="group-open:animate-fadeIn mx-auto border border-solid  border-t-0 p-6 text-black bg-light-orange md:w-[95%] w-[90%]">
+                            <p class="mb-8">Sua página vai rodar lisinha no celular, no PC e até no micro-ondas (se tivesse navegador).</p>
                         </div>
                     </details>
                 </div>
@@ -1181,8 +1174,7 @@ $args = array(
                     <details class="group relative">
                         <summary
                             class="flex justify-left px-5 items-center font-medium cursor-pointer list-none py-3 bg-light-orange border border-black  shadow-accordion rounded-full">
-                            <span class="text-black uppercase m-0 text-sm md:text-xl font-semibold">Como contratar meus
-                                serviços</span>
+                            <span class="text-black uppercase m-0 text-sm md:text-xl font-semibold">Quanto tempo leva para minha landing page ficar pronta?</span>
                             <span class="transition group-open:rotate-180 absolute right-5">
                                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -1191,14 +1183,9 @@ $args = array(
                                 </svg>
                             </span>
                         </summary>
-                        <div class="group-open:animate-fadeIn mx-auto border border-solid  border-t-0 p-6 text-black bg-light-orange md:w-[95%] w-[90%]">
-                            <p class="mb-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                                has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        <div
+                            class="group-open:animate-fadeIn mx-auto border border-solid  border-t-0 p-6 text-black bg-light-orange md:w-[95%] w-[90%]">
+                            <p class="mb-8">O prazo varia conforme o modelo escolhido: Template pronto: entre 24hrs e 48hrs a partir da entrega do domínio. Intermediário: até 7 dias úteis, após a entrega do formulário. Premium: até 20 dias úteis, após a reunião de alinhamento, dependendo da complexidade.</p>
                         </div>
                     </details>
                 </div>
@@ -1206,8 +1193,7 @@ $args = array(
                     <details class="group relative">
                         <summary
                             class="flex justify-left px-5 items-center font-medium cursor-pointer list-none py-3 bg-light-orange border border-black  shadow-accordion rounded-full">
-                            <span class="text-black uppercase m-0 text-sm md:text-xl font-semibold">Como contratar meus
-                                serviços</span>
+                            <span class="text-black uppercase m-0 text-sm md:text-xl font-semibold">Posso fazer mudanças na minha landing page depois de pronta?</span>
                             <span class="transition group-open:rotate-180 absolute right-5">
                                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -1216,39 +1202,9 @@ $args = array(
                                 </svg>
                             </span>
                         </summary>
-                        <div class="group-open:animate-fadeIn mx-auto border border-solid  border-t-0 p-6 text-black bg-light-orange md:w-[95%] w-[90%]">
-                            <p class="mb-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                                has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                        </div>
-                    </details>
-                </div>
-                <div class="accordion mb-5">
-                    <details class="group relative">
-                        <summary
-                            class="flex justify-left px-5 items-center font-medium cursor-pointer list-none py-3 bg-light-orange border border-black  shadow-accordion rounded-full">
-                            <span class="text-black uppercase m-0 text-sm md:text-xl font-semibold">Como contratar meus
-                                serviços</span>
-                            <span class="transition group-open:rotate-180 absolute right-5">
-                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
-                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    viewBox="0 0 24 24" width="24" class="text-marmota-orange">
-                                    <path d="M6 9l6 6 6-6"></path>
-                                </svg>
-                            </span>
-                        </summary>
-                        <div class="group-open:animate-fadeIn mx-auto border border-solid  border-t-0 p-6 text-black bg-light-orange md:w-[95%] w-[90%]">
-                            <p class="mb-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                                has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        <div
+                            class="group-open:animate-fadeIn mx-auto border border-solid  border-t-0 p-6 text-black bg-light-orange md:w-[95%] w-[90%]">
+                            <p class="mb-8">Sim! No modelo Molde Pronto, você edita sozinho. No Intermediário e Premium, oferecemos um período de ajustes após a entrega.</p>
                         </div>
                     </details>
                 </div>
