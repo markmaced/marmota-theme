@@ -1111,7 +1111,7 @@ $args = array(
                     <details class="group relative">
                         <summary
                             class="flex justify-left px-5 items-center font-medium cursor-pointer list-none py-3 bg-light-orange border border-black  shadow-accordion rounded-full">
-                            <span class="text-black uppercase m-0 text-sm md:text-xl font-semibold">Qual é a diferença
+                            <span class="text-black m-0 text-sm md:text-xl font-semibold">Qual é a diferença
                                 entre site e landing page?</span>
                             <span class="transition group-open:rotate-180 absolute right-5">
                                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
@@ -1136,7 +1136,7 @@ $args = array(
                     <details class="group relative">
                         <summary
                             class="flex justify-left px-5 items-center font-medium cursor-pointer list-none py-3 bg-light-orange border border-black  shadow-accordion rounded-full">
-                            <span class="text-black uppercase m-0 text-sm md:text-xl font-semibold">Quais funcionalidades podem ser incluídas no site?</span>
+                            <span class="text-black m-0 text-sm md:text-xl font-semibold">Quais funcionalidades podem ser incluídas no site?</span>
                             <span class="transition group-open:rotate-180 absolute right-5">
                                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -1155,7 +1155,7 @@ $args = array(
                     <details class="group relative">
                         <summary
                             class="flex justify-left px-5 items-center font-medium cursor-pointer list-none py-3 bg-light-orange border border-black  shadow-accordion rounded-full">
-                            <span class="text-black uppercase m-0 text-sm md:text-xl font-semibold">Meu site vai funcionar no smartphone e no computador?s</span>
+                            <span class="text-black m-0 text-sm md:text-xl font-semibold">Meu site vai funcionar no smartphone e no computador?</span>
                             <span class="transition group-open:rotate-180 absolute right-5">
                                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -1174,7 +1174,7 @@ $args = array(
                     <details class="group relative">
                         <summary
                             class="flex justify-left px-5 items-center font-medium cursor-pointer list-none py-3 bg-light-orange border border-black  shadow-accordion rounded-full">
-                            <span class="text-black uppercase m-0 text-sm md:text-xl font-semibold">Quanto tempo leva para minha landing page ficar pronta?</span>
+                            <span class="text-black m-0 text-sm md:text-xl font-semibold">Quanto tempo leva para minha landing page ficar pronta?</span>
                             <span class="transition group-open:rotate-180 absolute right-5">
                                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -1193,7 +1193,7 @@ $args = array(
                     <details class="group relative">
                         <summary
                             class="flex justify-left px-5 items-center font-medium cursor-pointer list-none py-3 bg-light-orange border border-black  shadow-accordion rounded-full">
-                            <span class="text-black uppercase m-0 text-sm md:text-xl font-semibold">Posso fazer mudanças na minha landing page depois de pronta?</span>
+                            <span class="text-black m-0 text-sm md:text-xl font-semibold">Posso fazer mudanças na minha landing page depois de pronta?</span>
                             <span class="transition group-open:rotate-180 absolute right-5">
                                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
