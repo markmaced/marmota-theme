@@ -622,7 +622,7 @@ $args = array(
                                             clip-rule="evenodd"></path>
                                     </svg><span class="sr-only">Show information</span></button></span>
                             <div data-popover id="popover-pronto" role="tooltip"
-                                class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
+                                class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 w-72 dark:bg-white dark:border-gray-600 dark:text-black">
                                 <div class="p-3 space-y-2">
                                     <p class="text-black">Arquivo entregue pronto para uso, sem personalização ou
                                         edições
@@ -786,7 +786,7 @@ $args = array(
                                             clip-rule="evenodd"></path>
                                     </svg><span class="sr-only">Show information</span></button></span>
                             <div data-popover id="popover-editado" role="tooltip"
-                                class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
+                                class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 w-72 dark:bg-white dark:border-gray-600 dark:text-black">
                                 <div class="p-3 space-y-2">
                                     <p class="text-black">Uma página de vendas baseada em um template pré-definido,
                                         editada
@@ -958,7 +958,7 @@ $args = array(
                                             clip-rule="evenodd"></path>
                                     </svg><span class="sr-only">Show information</span></button></span></span>
                             <div data-popover id="popover-personalizado" role="tooltip"
-                                class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
+                                class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 w-72 dark:bg-white dark:border-gray-600 dark:text-black">
                                 <div class="p-3 space-y-2">
                                     <p class="text-black">Uma landing page criada do zero, com texto, design e estrutura
                                         exclusivos. Desenvolvida e implementada no GreatPages para o seu uso.</p>
