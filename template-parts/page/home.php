@@ -512,81 +512,40 @@ $args = array(
 <section class="w-full md:py-20 py-10 bg-light-orange">
     <div class="max-w-6xl mx-auto">
         <h2 class="text-5xl font-normal font-omnes text-center mb-8 leading-tight" data-aos="fade-down">
-            Conheça nossos modelos
+            Conheça alguns de nossos modelos</b>
         </h2>
-        <?php
-        // Recupera as categorias do post tipo "templates"
-        $categories = get_terms(array(
-            'taxonomy' => 'template_category_marmota',
-            'orderby' => 'name',
-            'order' => 'ASC',
-            'hide_empty' => false,
-        ));
-
-        if ($categories): ?>
-            <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-styled-tab"
-                    data-tabs-toggle="#default-styled-tab-content"
-                    data-tabs-active-classes="text-marmota-orange hover:text-marmota-orange dark:text-marmota-orange dark:hover:text-marmota-orange border-marmota-orange dark:border-marmota-orange"
-                    data-tabs-inactive-classes="dark:border-transparent text-black hover:text-gray-600 dark:text-black border-black hover:border-gray-300 dark:border-black dark:hover:text-gray-300"
-                    role="tablist">
-                    <?php foreach ($categories as $category): ?>
-                        <li class="me-2" role="presentation">
-                            <button class="inline-block p-4 border-b-2 rounded-t-lg cursor-pointer"
-                                id="category-<?php echo $category->term_id; ?>-tab"
-                                data-tabs-target="#category-<?php echo $category->term_id; ?>" type="button" role="tab"
-                                aria-controls="category-<?php echo $category->term_id; ?>"
-                                aria-selected="false"><?php echo $category->name; ?></button>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
+        <div class="w-full md:flex gap-3 md:px-0 px-5">
+            <div class="md:w-1/5 w-full max-w-full max-h-full">
+                <a href="https://demos.marmotastudiocriativo.com.br/template-1" target="_blank">
+                    <img src="<?php echo get_theme_image('template-1.png') ?>"
+                        class="w-full transition-all duration-500 hover:scale-105">
+                </a>
             </div>
-
-            <div id="default-styled-tab-content">
-                <?php foreach ($categories as $category): ?>
-                    <div class="hidden" id="category-<?php echo $category->term_id; ?>" role="tabpanel"
-                        aria-labelledby="category-<?php echo $category->term_id; ?>-tab">
-                        <?php
-                        // Recupera os posts associados a cada categoria
-                        $args = array(
-                            'post_type' => 'templates_marmota',
-                            'posts_per_page' => -1,
-                            'tax_query' => array(
-                                array(
-                                    'taxonomy' => 'template_category_marmota',
-                                    'field' => 'id',
-                                    'terms' => $category->term_id,
-                                    'operator' => 'IN',
-                                ),
-                            ),
-                        );
-
-                        $query = new WP_Query($args);
-                        ?>
-
-                        <div class="flex gap-4">
-                            <?php while ($query->have_posts()):
-                                $query->the_post();
-                                if (has_post_thumbnail()):
-                                    ?>
-                                    <div class="md:w-1/5 w-full">
-                                        <a href="<?php echo get_field('url', get_the_ID()) ?>" target="_blank">
-                                            <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>"
-                                                class="w-full transition-all duration-500 hover:scale-105">
-                                        </a>
-                                    </div>
-                                    <?php
-                                endif;
-                            endwhile; ?>
-                        </div>
-                        <?php
-
-                        wp_reset_postdata();
-                        ?>
-                    </div>
-                <?php endforeach; ?>
+            <div class="md:w-1/5 w-full max-w-full max-h-full">
+                <a href="https://demos.marmotastudiocriativo.com.br/template-2" target="_blank">
+                    <img src="<?php echo get_theme_image('template-2.png') ?>"
+                        class="w-full transition-all duration-500 hover:scale-105">
+                </a>
             </div>
-        <?php endif; ?>
+            <div class="md:w-1/5 w-full max-w-full max-h-full">
+                <a href="https://demos.marmotastudiocriativo.com.br/template-3" target="_blank">
+                    <img src="<?php echo get_theme_image('template-3.png') ?>"
+                        class="w-full transition-all duration-500 hover:scale-105">
+                </a>
+            </div>
+            <div class="md:w-1/5 w-full max-w-full max-h-full">
+                <a href="https://demos.marmotastudiocriativo.com.br/template-4" target="_blank">
+                    <img src="<?php echo get_theme_image('template-4.png') ?>"
+                        class="w-full transition-all duration-500 hover:scale-105">
+                </a>
+            </div>
+            <div class="md:w-1/5 w-full max-w-full max-h-full">
+                <a href="https://demos.marmotastudiocriativo.com.br/template-5" target="_blank">
+                    <img src="<?php echo get_theme_image('template-5.png') ?>"
+                        class="w-full transition-all duration-500 hover:scale-105">
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 
