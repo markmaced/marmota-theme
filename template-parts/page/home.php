@@ -878,7 +878,7 @@ $args = array(
                             <!-- <a
                             href="https://checkout.infinitepay.io/aline_laranjo?items=[{&quot;name&quot;:&quot;Pitaco&quot;,&quot;price&quot;:180000,&quot;quantity&quot;:1}]&redirect_url=https://marmota.devhouse.com.br/obrigado&customer_name=<?php #echo $nome ?>&customer_email=<?php #echo $email ?>&customer_cellphone=<?php #echo $telefone ?>" target="_blank">Escolher
                             este modelo</a> -->
-                            <a href="<?php echo wc_get_cart_url(); ?>?add-to-cart=69"
+                            <a href="<?php echo wc_get_cart_url(); ?>?add-to-cart=109"
                                 class="w-2/3 mx-auto bg-marmota-orange border-4 border-black hover:scale-105 duration-500 transition-all text-black font-bold rounded-full text-[12px] px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5">Escolher
                                 este modelo</a>
                         <?php else: ?>
@@ -1045,7 +1045,7 @@ $args = array(
                     </div>
                     <div class="w-full flex justify-center">
                         <?php if (is_user_logged_in()): ?>
-                            <a href="<?php echo wc_get_cart_url(); ?>?add-to-cart=69"
+                            <a href="<?php echo wc_get_cart_url(); ?>?add-to-cart=111"
                                 class="w-2/3 mx-auto bg-marmota-orange border-4 border-black hover:scale-105 duration-500 transition-all text-black font-bold rounded-full text-[12px] px-5 py-2.5 uppercase cursor-pointer absolute -bottom-5">Escolher
                                 este modelo</a>
                         <?php else: ?>
